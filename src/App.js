@@ -1,16 +1,15 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import CategoryNavigation from "./components/CategoryNavigation";
 
 function App() {
   return (
-    <h1>Hello World!</h1>
+    <div style={{ padding: "20px" }}>
+      <CategoryNavigation />
+    </div>
   );
 }
 
-
-const container = document.getElementById('root');
-const root = ReactDOM.createRoot(container);
-root.render(<App />);
-
 export default App;
+
+
 
