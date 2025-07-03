@@ -1,9 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import PageLayout from "./components/PageLayout";
 
 function App() {
   return (
-    <h1>Hello World!</h1>
+    <PageLayout
+      header={<h1>My Header</h1>}
+      sidebar={<nav>Links</nav>}
+      main={<section>Welcome to my layout</section>}
+      footer={<small>&copy; 2025</small>}
+    />
   );
 }
 
