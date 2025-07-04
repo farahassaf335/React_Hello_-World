@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
-import './Carousel.css';
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { Navigation } from 'swiper/modules';
 
 const images = [
   {
@@ -17,25 +20,23 @@ const images = [
 ];
 
 function Carousel() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextSlide = () => {
-    setCurrentIndex((currentIndex + 1) % images.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((currentIndex - 1 + images.length) % images.length);
-  };
-
   return (
-    <div className="carousel-container">
-      <button onClick={prevSlide} className="carousel-button prev">&#8592;</button>
-      <img
-        src={images[currentIndex].url}
-        alt={images[currentIndex].alt}
-        className="carousel-image"
-      />
-      <button onClick={nextSlide} className="carousel-button next">&#8594;</button>
+    <div style={{ width: '300px', margin: '0 auto' }}>
+      <Swiper
+        navigation={true}
+        modules={[Navigation]}
+        className="mySwiper"
+      >
+        {images.map((img, index) => (
+          <SwiperSlide key={index}>
+            <img
+              src={img.url}
+              alt={img.alt}
+              style={{ width: '100%', borderRadius: '10px' }}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 }
