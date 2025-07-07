@@ -1,12 +1,12 @@
 import React from "react"; 
 import ReactDOM from "react-dom/client";
+
 import PageLayout from "./components/PageLayout";
-import Carousel from './components/Carousel';
 
 function App() {
   return (
     <PageLayout
-      header={<h1>My Header</h1>}
+      header={<Header />}
       sidebar={<nav>Links</nav>}
       main={
         <section>

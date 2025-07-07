@@ -1,43 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Modern E-commerce Platform</title>
+    <link rel="stylesheet" href="HomePage.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <header class="main-header">
+      <div class="container header-content">
+        <div class="logo">Anon</div>
+        <nav class="nav-links">
+          <a href="#">Home</a>
+          <a href="#">Categories</a>
+          <a href="#">Men's</a>
+          <a href="#">Women's</a>
+          <a href="#">Jewelry</a>
+          <a href="#">Perfume</a>
+          <a href="#">Blog</a>
+          <a href="#">Hot Offers</a>
+        </nav>
+        <div class="header-actions">
+          <input class="search-bar" type="text" placeholder="Enter your product name..." />
+          <div class="icons">
+            <span class="icon">♡</span>
+            <span class="icon">🛒</span>
+            <span class="icon">👤</span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="hero-section">
+        <div class="hero-content">
+          <h1>Trending Accessories<br><span>MODERN SUNGLASSES</span></h1>
+          <p>Starting at $15.00</p>
+          <button class="btn btn-primary">Shop Now</button>
+        </div>
+        <div class="hero-image">
+          <img src="hero-img.png" alt="Modern Sunglasses" />
+        </div>
+      </section>
+      <section class="categories-section container">
+        <aside class="sidebar">
+          <h3>Category</h3>
+          <ul>
+            <li>Clothes</li>
+            <li>Footwear</li>
+            <li>Jewelry</li>
+            <li>Cosmetics</li>
+            <li>Gadgets</li>
+          </ul>
+         
+        </aside>
+        <div class="main-content">
+          <div class="product-tabs">
+            <button class="tab active">New Arrivals</button>
+            <button class="tab">Trending</button>
+            <button class="tab">Top Rated</button>
+          </div>
+          <div class="product-grid">
+            
+            <div class="product-card">
+              <img src="product1.png" alt="Product" />
+              <div class="product-info">
+                <h4>Product Name</h4>
+                <div class="price">$49.00 <span class="old-price">$59.00</span></div>
+                <div class="rating">★★★★★ 4.8</div>
+              </div>
+              <div class="quick-actions">
+                <button class="icon-btn">♡</button>
+                <button class="icon-btn">🛒</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+    
+    </main>
+    <footer class="main-footer">
+      <div class="container footer-content">
+        <div class="footer-columns">
+          <div>
+            <h5>Our Company</h5>
+            <ul>
+              <li>About Us</li>
+              <li>Contact</li>
+              <li>Careers</li>
+            </ul>
+          </div>
+          <div>
+            <h5>Services</h5>
+            <ul>
+              <li>Shipping</li>
+              <li>Returns</li>
+              <li>Support</li>
+            </ul>
+          </div>
+          <div>
+            <h5>Contact</h5>
+            <ul>
+              <li>Email: info@anon.com</li>
+              <li>Phone: +123456789</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2025 Anon. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
