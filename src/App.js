@@ -2,12 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import PageLayout from "./components/PageLayout";
 import Carousel from './components/Carousel';
+import CategoryNavigation from "./components/CategoryNavigation";
 
 function App() {
   return (
     <PageLayout
       header={<h1>My Header</h1>}
-      sidebar={<nav>Links</nav>}
+      sidebar={<nav><CategoryNavigation /></nav>}
       main={
         <section>
           <h2>Welcome to my layout</h2>
@@ -24,3 +25,4 @@ const root = ReactDOM.createRoot(container);
 root.render(<App />);
 
 export default App;
+
