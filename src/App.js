@@ -1,10 +1,5 @@
 import React from "react"; 
 import ReactDOM from "react-dom/client";
-
-
-import PageLayout from "./components/PageLayout";
-import Header from "./components/Header";
-import Carousel from "./components/Carousel";
 import HomePage from "./components/HomePage";
 
 function App() {
