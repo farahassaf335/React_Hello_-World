@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./HomePage.css"; 
 import "./Header.css";
+import axios from 'axios';
 
 const Header = () => {
   const [showCurrency, setShowCurrency] = useState(false);
@@ -27,18 +28,16 @@ const handleCloseResults = () => {
 
 const handleSearch = () => {
   if (!searchQuery.trim()) return;
-  
-  fetch(`https://dummyjson.com/products/search?q=${searchQuery}`)
-    .then(res => res.json())
-    .then(data => {
-      setSearchResults(data.products);
+
+  axios.get(`https://dummyjson.com/products/search?q=${searchQuery}`)
+    .then(response => {
+      setSearchResults(response.data.products);
       setShowResults(true);
     })
     .catch(error => {
       console.error("Search Error:", error);
     });
 };
-
 
   return (
      <div className="main-header">
