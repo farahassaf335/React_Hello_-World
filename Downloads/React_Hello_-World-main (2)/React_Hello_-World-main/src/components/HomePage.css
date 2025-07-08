@@ -1,0 +1,271 @@
+.hero-section.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 32px 0 0 0;
+  
+}
+
+.hero-left {
+  flex: 1 1 350px;
+  min-width: 260px;
+}
+.hero-title {
+  font-size: 2.7rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  line-height: 1.1;
+}
+.hero-title span {
+  color: #ff6f61;
+  font-size: 2.2rem;
+}
+.hero-sub {
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+}
+.hero-image {
+  flex: 1 1 320px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.hero-image img {
+  max-width: 350px;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  object-fit: cover;
+}
+
+.custom-header{
+width: 100%;
+}
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+
+
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  margin-right: 10px;
+}
+
+.icons .icon {
+  margin: 0 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.hero-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0;
+  gap: 32px;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  min-width: 180px;
+  max-height: 260px;
+  object-fit: contain;
+}
+
+.hero-content span {
+  color: #ff6f61;
+}
+
+.btn.btn-primary {
+  background: #ff6f61;
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 24px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.categories-section {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  gap: 32px;
+}
+
+.sidebar {
+  width: 200px;
+  min-width: 160px;
+  margin-right: 32px;
+  flex: 1 1 180px;
+}
+.main-content {
+  flex: 3 1 350px;
+  min-width: 260px;
+}
+
+.product-tabs {
+  margin-bottom: 20px;
+}
+
+.tab {
+  background: #f5f5f5;
+  border: none;
+  padding: 8px 16px;
+  margin-right: 8px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: #ff6f61;
+  color: #fff;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 16px;
+  width: 200px;
+  min-width: 160px;
+  margin-bottom: 20px;
+}
+
+.product-info h4 {
+  margin: 8px 0 4px 0;
+}
+
+.price {
+  color: #ff6f61;
+  font-weight: bold;
+}
+
+.old-price {
+  color: #aaa;
+  text-decoration: line-through;
+  margin-left: 8px;
+}
+
+.rating {
+  color: #fbc02d;
+  font-size: 0.9rem;
+}
+
+.quick-actions .icon-btn {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+.main-footer {
+  background: #222;
+  color: #fff;
+  padding: 32px 0 16px 0;
+  margin-top: 40px;
+}
+
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 1024px) {
+  .hero-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .categories-section {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .sidebar {
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
+  .main-content {
+    min-width: 0;
+  }
+  .footer-columns {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-header {
+    flex-direction: column;
+    padding: 10px 0;
+  }
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+ 
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+  .product-card {
+    width: 100%;
+    min-width: 0;
+  }
+  .sidebar {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+.footer-columns h5 {
+  margin-bottom: 10px;
+}
+
+.footer-bottom {
+  border-top: 1px solid #444;
+  padding-top: 12px;
+  text-align: center;
+  font-size: 0.95rem;
+}
