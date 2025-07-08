@@ -7,7 +7,7 @@ const HomePage = () => (
       <div className="container header-content">
         <div className="logo">Anon</div>
         <nav className="nav-links">
-          <a href="/">Home</a>
+          <a href="/">Home</a> 
           <a href="/categories">Categories</a>
           <a href="/mens">Men's</a>
           <a href="/womens">Women's</a>
