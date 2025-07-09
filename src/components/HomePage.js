@@ -1,4 +1,5 @@
 import React from "react";
+import DealOfTheDay from "./DealOfTheDay";
 import "./HomePage.css";
 
 const HomePage = () => (
@@ -37,6 +38,8 @@ const HomePage = () => (
           <img src={process.env.PUBLIC_URL + "/image/photo1.jpg"} alt="Modern Sunglasses" />
         </div>
       </section>
+
+
       <section className="categories-section container">
         <aside className="sidebar">
           <h3>Category</h3>
@@ -68,8 +71,14 @@ const HomePage = () => (
               </div>
             </div>
           </div>
+
         </div>
       </section>
+
+      <div className="deal-section-wrapper container">
+        <h2 className="deal-title">Deal Of The Day</h2>
+        <DealOfTheDay />
+      </div>
     </main>
     <footer className="main-footer">
       <div className="container footer-content">
