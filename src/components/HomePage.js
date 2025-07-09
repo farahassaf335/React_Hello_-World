@@ -1,6 +1,6 @@
 import React from "react";
 import "./HomePage.css";
-import Carousel from "./Carousel"; // تأكد إن الملف موجود بنفس المجلد أو عدل المسار حسب الحاجة
+import Carousel from "./Carousel/Carousel"; // تأكد إن الملف موجود بنفس المجلد أو عدل المسار حسب الحاجة
 
 const HomePage = () => (
   <>
