@@ -127,16 +127,16 @@ const handleSearch = () => {
               </div>
 
               <div className="right-icons">
-                <a className="icon-with-badge" href="#" target="_blank" rel="noopener noreferrer">
+                <a className="icon-with-badge" href="/user" target="_blank" rel="noopener noreferrer">
                   <i className="fas fa-user"></i>
                 </a>
 
-                <a className="icon-with-badge" href="#" target="_blank" rel="noopener noreferrer">
+                <a className="icon-with-badge" href="/likes" target="_blank" rel="noopener noreferrer">
                   <i className="fas fa-heart"></i>
                   <span className="badge">0</span>
                 </a>
 
-                <a className="icon-with-badge" href="#" target="_blank" rel="noopener noreferrer">
+                <a className="icon-with-badge" href="/cart" target="_blank" rel="noopener noreferrer">
                   <i className="fas fa-shopping-bag"></i>
                   <span className="badge">0</span>
                 </a>
