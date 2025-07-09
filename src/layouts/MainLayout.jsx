@@ -1,6 +1,7 @@
 import React from "react";
-import './PageLayout.css';
-const PageLayout = ({ header, sidebar, main, footer }) => {
+import '../styles/MainLayout.css'; 
+
+const MainLayout = ({ header, sidebar, main, footer }) => {
   return (
     <div className="page-layout">
       <header>{header}</header>
@@ -11,4 +12,4 @@ const PageLayout = ({ header, sidebar, main, footer }) => {
   );
 };
 
-export default PageLayout;
+export default MainLayout;

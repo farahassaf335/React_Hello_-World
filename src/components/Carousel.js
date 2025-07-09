@@ -4,17 +4,22 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 
+
+import photo1 from '../assets/image/photo1.jpg';
+import photo2 from '../assets/image/photo2.jpg';
+import photo3 from '../assets/image/photo3.jpg';
+
 const images = [
   {
-    url: '/image/photo1.jpg',
+    url: photo1,
     alt: 'Hat',
   },
   {
-    url: '/image/photo2.jpg',
+    url: photo2,
     alt: 'Modern smartphone offers',
   },
   {
-    url: '/image/photo3.jpg',
+    url: photo3,
     alt: 'Accessories and deals',
   },
 ];
