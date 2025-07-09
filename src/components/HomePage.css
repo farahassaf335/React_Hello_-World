@@ -4,7 +4,9 @@
   justify-content: space-between;
   gap: 32px;
   padding: 32px 0 0 0;
+  
 }
+
 .hero-left {
   flex: 1 1 350px;
   min-width: 260px;
@@ -37,18 +39,10 @@
   box-shadow: 0 4px 24px rgba(0,0,0,0.08);
   object-fit: cover;
 }
-/* HomePage.css - نسخ من public/HomePage.css أو أضف هنا التنسيقات الخاصة بالصفحة */
 
-.main-header {
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  font-family: 'Poppins', 'Inter', sans-serif;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+.custom-header{
+width: 100%;
 }
-
-/* Responsive utility classes */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -67,12 +61,7 @@
   font-weight: bold;
 }
 
-.nav-links a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-}
+
 
 .header-actions {
   display: flex;
@@ -256,10 +245,7 @@
     align-items: flex-start;
     gap: 10px;
   }
-  .nav-links {
-    flex-wrap: wrap;
-    gap: 6px;
-  }
+ 
   .hero-content h1 {
     font-size: 1.5rem;
   }
