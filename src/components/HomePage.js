@@ -1,5 +1,6 @@
 import React from "react";
 import "./HomePage.css";
+import Carousel from "./Carousel"; // تأكد إن الملف موجود بنفس المجلد أو عدل المسار حسب الحاجة
 
 const HomePage = () => (
   <>
@@ -26,6 +27,7 @@ const HomePage = () => (
         </div>
       </div>
     </header>
+
     <main>
       <section className="hero-section container">
         <div className="hero-left">
@@ -33,10 +35,13 @@ const HomePage = () => (
           <p className="hero-sub">Starting at $15.00</p>
           <button className="btn btn-primary">Shop Now</button>
         </div>
+
+        {/* استبدلنا hero-image بالكاروسيل */}
         <div className="hero-image">
-          <img src={process.env.PUBLIC_URL + "/image/photo1.jpg"} alt="Modern Sunglasses" />
+          <Carousel />
         </div>
       </section>
+
       <section className="categories-section container">
         <aside className="sidebar">
           <h3>Category</h3>
@@ -56,7 +61,7 @@ const HomePage = () => (
           </div>
           <div className="product-grid">
             <div className="product-card">
-              <img src={process.env.PUBLIC_URL + "/image/photo2.jpg"} alt="Product" />
+              <img src={process.env.PUBLIC_URL + "/image/pic2.jpg"} alt="Product" />
               <div className="product-info">
                 <h4>Product Name</h4>
                 <div className="price">$49.00 <span className="old-price">$59.00</span></div>
@@ -71,6 +76,7 @@ const HomePage = () => (
         </div>
       </section>
     </main>
+
     <footer className="main-footer">
       <div className="container footer-content">
         <div className="footer-columns">

@@ -1,39 +1,33 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { Navigation } from 'swiper/modules';
+import 'swiper/css/pagination';
+import './Carousel.css';
 
 const images = [
-  {
-    url: '/image/photo1.jpg',
-    alt: 'Hat',
-  },
-  {
-    url: '/image/photo2.jpg',
-    alt: 'Modern smartphone offers',
-  },
-  {
-    url: '/image/photo3.jpg',
-    alt: 'Accessories and deals',
-  },
+  '/image/pic3.jpg',
+  '/image/pic1.jpg',
+  '/image/pic2.jpg',
 ];
 
 function Carousel() {
   return (
-    <div style={{ width: '300px', margin: '0 auto' }}>
+    <div className="carousel-wrapper">
       <Swiper
-        navigation={true}
-        modules={[Navigation]}
+        modules={[Autoplay, Navigation, Pagination]}
+        loop={true}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        navigation
+        pagination={{ clickable: true }}
         className="mySwiper"
       >
-        {images.map((img, index) => (
+        {images.map((src, index) => (
           <SwiperSlide key={index}>
-            <img
-              src={img.url}
-              alt={img.alt}
-              style={{ width: '100%', borderRadius: '10px' }}
-            />
+            <div className="carousel-image-wrapper">
+              <img src={src} alt={`Slide ${index}`} className="carousel-image" />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
