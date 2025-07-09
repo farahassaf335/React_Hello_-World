@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./HomePage.css"; 
 import "./Header.css";
 import axios from 'axios';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Header = () => {
   const [showCurrency, setShowCurrency] = useState(false);
