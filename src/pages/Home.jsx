@@ -50,7 +50,7 @@ const Home = () => (
           <button className="btn btn-primary">Shop Now</button>
         </div>
         <div className="hero-image">
-          <img src={require("../assets/image/photo1.jpg")} alt="Modern Sunglasses" />
+          <img src="/image/photo1.jpg" alt="Modern Sunglasses" />
         </div>
       </section>
       <section className="categories-section container">
@@ -62,7 +62,7 @@ const Home = () => (
           </div>
           <div className="product-grid">
             <div className="product-card">
-              <img src={require("../assets/image/photo2.jpg")} alt="Product" />
+              <img src="/image/photo2.jpg" alt="Product" />
               <div className="product-info">
                 <h4>Product Name</h4>
                 <div className="price">$49.00 <span className="old-price">$59.00</span></div>

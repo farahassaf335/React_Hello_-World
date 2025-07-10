@@ -37,7 +37,7 @@ const DealOfTheDay = () => {
   return (
     <div className="deal-of-the-day">
       <div className="deal-image">
-        <img src={require("../assets/image/photo1.jpg")} alt="Deal Product" />
+        <img src="/image/photo1.jpg" alt="Deal Product" />
       </div>
       <div className="deal-info">
         <div className="deal-rating">

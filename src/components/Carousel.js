@@ -5,9 +5,9 @@ import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 
 
-import photo1 from '../assets/image/photo1.jpg';
-import photo2 from '../assets/image/photo2.jpg';
-import photo3 from '../assets/image/photo3.jpg';
+import photo1 from '/image/photo1.jpg';
+import photo2 from '/image/photo2.jpg';
+import photo3 from '/image/photo3.jpg';
 
 const images = [
   {
