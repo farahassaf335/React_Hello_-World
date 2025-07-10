@@ -1,13 +1,19 @@
-import React from "react";
-import "./HomePage.css";
 
-const HomePage = () => (
-  <>
+import React from "react";
+import DealOfTheDay from "../components/DealOfTheDay";
+import "../styles/HomePage.css";
+import "../styles/CategoryNavigation.css";
+import "../styles/DealOfTheDay.css";
+import "../styles/Header.css";
+import "../styles/MainLayout.css";
+
+const Home = () => (
+  <div className="page-layout">
     <header className="main-header">
       <div className="container header-content">
         <div className="logo">Anon</div>
         <nav className="nav-links">
-          <a href="/">Home</a> 
+          <a href="/">Home</a>
           <a href="/categories">Categories</a>
           <a href="/mens">Men's</a>
           <a href="/womens">Women's</a>
@@ -26,6 +32,16 @@ const HomePage = () => (
         </div>
       </div>
     </header>
+    <aside className="sidebar">
+      <h3>Category</h3>
+      <ul>
+        <li>Clothes</li>
+        <li>Footwear</li>
+        <li>Jewelry</li>
+        <li>Cosmetics</li>
+        <li>Gadgets</li>
+      </ul>
+    </aside>
     <main>
       <section className="hero-section container">
         <div className="hero-left">
@@ -34,20 +50,10 @@ const HomePage = () => (
           <button className="btn btn-primary">Shop Now</button>
         </div>
         <div className="hero-image">
-          <img src={process.env.PUBLIC_URL + "/image/photo1.jpg"} alt="Modern Sunglasses" />
+          <img src="/image/photo1.jpg" alt="Modern Sunglasses" />
         </div>
       </section>
       <section className="categories-section container">
-        <aside className="sidebar">
-          <h3>Category</h3>
-          <ul>
-            <li>Clothes</li>
-            <li>Footwear</li>
-            <li>Jewelry</li>
-            <li>Cosmetics</li>
-            <li>Gadgets</li>
-          </ul>
-        </aside>
         <div className="main-content">
           <div className="product-tabs">
             <button className="tab active">New Arrivals</button>
@@ -56,7 +62,7 @@ const HomePage = () => (
           </div>
           <div className="product-grid">
             <div className="product-card">
-              <img src={process.env.PUBLIC_URL + "/image/photo2.jpg"} alt="Product" />
+              <img src="/image/photo2.jpg" alt="Product" />
               <div className="product-info">
                 <h4>Product Name</h4>
                 <div className="price">$49.00 <span className="old-price">$59.00</span></div>
@@ -70,6 +76,10 @@ const HomePage = () => (
           </div>
         </div>
       </section>
+      <div className="deal-section-wrapper container">
+        <h2 className="deal-title">Deal Of The Day</h2>
+        <DealOfTheDay />
+      </div>
     </main>
     <footer className="main-footer">
       <div className="container footer-content">
@@ -103,7 +113,7 @@ const HomePage = () => (
         </div>
       </div>
     </footer>
-  </>
+  </div>
 );
 
-export default HomePage;
+export default Home;
