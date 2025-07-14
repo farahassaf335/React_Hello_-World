@@ -2,18 +2,20 @@ import React, { useState } from "react";
 import "../HomePage.css";
 import "./Header.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import useProductSearch from "../useProductSearch";
+import useProductSearch from "../../hooks/useProductSearch";
 
 const Header = () => {
   const [showCurrency, setShowCurrency] = useState(false);
   const [showLanguage, setShowLanguage] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [showResults, setShowResults] = useState(false);
 
   const {
     searchResults,
-    showResults,
     searchProducts,
-    closeResults,
+    clearResults,
+    loading,
+    error,
   } = useProductSearch();
 
   const toggleCurrency = () => {
@@ -28,11 +30,13 @@ const Header = () => {
 
   const handleSearch = () => {
     searchProducts(searchQuery);
+    setShowResults(true);
   };
 
   const handleCloseResults = () => {
-    closeResults();
+    clearResults();
     setSearchQuery("");
+    setShowResults(false);
   };
 
   return (
@@ -45,9 +49,12 @@ const Header = () => {
                 ×
               </button>
               <div className="search-results">
-                {searchResults.length === 0 ? (
+                {loading && <p>Loading...</p>}
+                {error && <p>{error}</p>}
+                {!loading && searchResults.length === 0 && !error && (
                   <p>No results found.</p>
-                ) : (
+                )}
+                {!loading &&
                   searchResults.map((product) => (
                     <div key={product.id} className="product-item">
                       <img src={product.thumbnail} alt={product.title} />
@@ -60,40 +67,23 @@ const Header = () => {
                         </p>
                       </div>
                     </div>
-                  ))
-                )}
+                  ))}
               </div>
             </div>
           )}
 
           <div className="header-section h1 top-bar">
             <div className="left-icons">
-              <a
-                href="https://www.facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-facebook-f"></i>
               </a>
-              <a
-                href="https://www.twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-twitter"></i>
               </a>
-              <a
-                href="https://www.instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-instagram"></i>
               </a>
-              <a
-                href="https://www.linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-linkedin-in"></i>
               </a>
             </div>
@@ -148,31 +138,16 @@ const Header = () => {
             </div>
 
             <div className="right-icons">
-              <a
-                className="icon-with-badge"
-                href="/user"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a className="icon-with-badge" href="/user" target="_blank" rel="noopener noreferrer">
                 <i className="fas fa-user"></i>
               </a>
 
-              <a
-                className="icon-with-badge"
-                href="/likes"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a className="icon-with-badge" href="/likes" target="_blank" rel="noopener noreferrer">
                 <i className="fas fa-heart"></i>
                 <span className="badge">0</span>
               </a>
 
-              <a
-                className="icon-with-badge"
-                href="/cart"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a className="icon-with-badge" href="/cart" target="_blank" rel="noopener noreferrer">
                 <i className="fas fa-shopping-bag"></i>
                 <span className="badge">0</span>
               </a>
