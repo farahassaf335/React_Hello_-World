@@ -1,0 +1,138 @@
+.carousel-container {
+  width: 100%;
+  max-width: 1000px;
+  height: 280px;     
+  margin: 0 auto;    
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.mySwiper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  border-radius: 12px;
+}
+
+.carousel-container {
+  width: 100%;
+  max-width: 700px;
+  margin: 20px auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
+}
+
+.slide-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.slide-content {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  color: white;
+  z-index: 2;
+  max-width: 300px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.slide-content h2 {
+  margin: 0 0 10px;
+  font-size: 24px;
+}
+
+.slide-content button {
+  padding: 8px 16px;
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.slide-content button:hover {
+  background-color: #e64a19;
+}
+.carousel-wrapper {
+  width: 100%;
+  max-width: 700px;
+  height:100%;
+  
+}
+
+.carousel-image-wrapper {
+  width: 100%;
+  height: 10000px;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-section {
+  padding: 20px; 
+  gap: 10px;     
+}
+
+
+.hero-left {
+  flex: 1;
+}
+
+.hero-image {
+  flex: 1;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiper {
+  width: 100%;
+  max-width: 1000px; 
+  height: auto;
+}
+.mySwiper img,
+.carousel-image,
+.swiper-slide img,
+.slide-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
