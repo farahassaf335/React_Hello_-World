@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import "../pages/Home";
 import "../styles/Header.css";
-import "@fortawesome/fontawesome-free/css/all.min.css";
 import useProductSearch from "../hooks/useProductSearch";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { 
+  faUser, faHeart, faShoppingBag, faSearch 
+} from "@fortawesome/free-solid-svg-icons";
+import { 
+  faFacebookF, faTwitter, faInstagram, faLinkedinIn 
+} from "@fortawesome/free-brands-svg-icons";
 const Header = () => {
   const [showCurrency, setShowCurrency] = useState(false);
   const [showLanguage, setShowLanguage] = useState(false);
@@ -75,16 +80,16 @@ const Header = () => {
           <div className="header-section h1 top-bar">
             <div className="left-icons">
               <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-facebook-f"></i>
+<FontAwesomeIcon icon={faFacebookF} />
               </a>
               <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-twitter"></i>
+<FontAwesomeIcon icon={faTwitter} />
               </a>
               <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-instagram"></i>
+<FontAwesomeIcon icon={faInstagram} />
               </a>
               <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-linkedin-in"></i>
+<FontAwesomeIcon icon={faLinkedinIn} />
               </a>
             </div>
 
@@ -131,24 +136,27 @@ const Header = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
-              <i
-                className="fas fa-search search-icon"
-                onClick={handleSearch}
-              ></i>
+             <FontAwesomeIcon
+  icon={faSearch}
+  className="search-icon "
+  onClick={handleSearch}
+/>
+
+              
             </div>
 
             <div className="right-icons">
               <a className="icon-with-badge" href="/user" target="_blank" rel="noopener noreferrer">
-                <i className="fas fa-user"></i>
+<FontAwesomeIcon icon={faUser} />
               </a>
 
               <a className="icon-with-badge" href="/likes" target="_blank" rel="noopener noreferrer">
-                <i className="fas fa-heart"></i>
+<FontAwesomeIcon icon={faHeart} />
                 <span className="badge">0</span>
               </a>
 
               <a className="icon-with-badge" href="/cart" target="_blank" rel="noopener noreferrer">
-                <i className="fas fa-shopping-bag"></i>
+<FontAwesomeIcon icon={faShoppingBag} />
                 <span className="badge">0</span>
               </a>
             </div>

@@ -175,7 +175,7 @@ a:hover,
 }
 
 
-.left-icons i {
+.left-icons a {
   margin-right: 10px;
   cursor: pointer;
   color: #888; 
@@ -237,12 +237,6 @@ a:hover,
 .dropdown div:hover {
   background-color: #f0f0f0;
 }
-
-
-
-
-
-
 
 
 
