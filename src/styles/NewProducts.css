@@ -1,0 +1,56 @@
+/* src/components/NewProducts.css */
+.new-products {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.new-products-list {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 0;
+  list-style: none;
+}
+
+.new-product-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #eee;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  min-width: 120px;
+}
+
+.new-product-item img {
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.info .name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.info .price {
+  color: #e91e63;
+  font-weight: bold;
+}
+.price {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #999; /* لون رمادي فاتح */
+  font-size: 0.85rem;
+}
+
+.current-price {
+  color: #e91e63; /* زهري واضح */
+  font-weight: bold;
+  font-size: 0.9rem;
+}

@@ -1,0 +1,64 @@
+.main-categories-wrapper {
+  margin: 20px 0;
+  padding: 10px;
+}
+
+
+.main-categories-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: flex-start;
+}
+
+
+.category-item {
+  display: flex;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 8px 12px;
+  border-radius: 8px;
+  min-width: 160px;
+  max-width: 200px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.category-item:hover {
+  transform: translateY(-3px);
+}
+
+.category-item img {
+  width: 36px;
+  height: 36px;
+  border-radius: 5px;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+/* النصوص */
+.category-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 2px;
+}
+
+.category-show-all {
+  font-size: 11px;
+  color: #e94560;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+
+@media (max-width: 600px) {
+  .main-categories-grid {
+    flex-direction: column;
+  }
+}
