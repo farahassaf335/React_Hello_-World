@@ -6,6 +6,7 @@ import "../styles/CategoryNavigation.css";
 import "../styles/DealOfTheDay.css";
 import "../styles/MainLayout.css";
 import Header from "../components/Header";
+import ProductSections from "../components/ProductSections";
 
 const Home = () => (
   <div className="page-layout">
@@ -31,6 +32,9 @@ const Home = () => (
         <div className="hero-image">
           <img src="/image/photo1.jpg" alt="Modern Sunglasses" />
         </div>
+     
+       <ProductSections />
+
       </section>
       <section className="categories-section container">
         <div className="main-content">
