@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../pages/Home";
-import "../styles/Header.css";
+import "../styles/Header.scss";
 import useProductSearch from "../hooks/useProductSearch";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
@@ -46,8 +46,7 @@ const Header = () => {
 
   return (
     <div className="main-header">
-      <div className="header-content">
-        <header className="custom-header">
+        <header>
           {showResults && (
             <div className="search-overlay">
               <button className="close-btn" onClick={handleCloseResults}>
@@ -77,7 +76,7 @@ const Header = () => {
             </div>
           )}
 
-          <div className="header-section h1 top-bar">
+          <div className="header-section top-bar">
             <div className="left-icons">
               <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
 <FontAwesomeIcon icon={faFacebookF} />
@@ -121,14 +120,8 @@ const Header = () => {
               </div>
             </div>
           </div>
-
-          <div className="divider"></div>
-
-          <div className="header-section h2 middle-bar">
-            <div className="left-title">
+          <div className="header-section middle-bar">
               <h2>Anon</h2>
-            </div>
-
             <div className="center-search">
               <input
                 type="text"
@@ -162,9 +155,9 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="divider"></div>
+          {/* <div className="divider"></div> */}
 
-          <div className="header-section h3">
+          <div className="header-section bottom-bar">
             <nav className="nav-links">
               <a href="/">Home</a>
               <a href="/categories">Categories</a>
@@ -177,7 +170,6 @@ const Header = () => {
             </nav>
           </div>
         </header>
-      </div>
     </div>
   );
 };
