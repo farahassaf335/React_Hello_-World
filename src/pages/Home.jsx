@@ -6,35 +6,15 @@ import "../styles/CategoryNavigation.css";
 import "../styles/DealOfTheDay.css";
 import "../styles/Header.css";
 import "../styles/MainLayout.css";
+import Header from "../components/Header";
 import Carousel from '../components/Carousel';
 import ProductSections from "../components/ProductSections";
 
 
 const Home = () => (
   <div className="page-layout">
-    <header className="main-header">
-      <div className="container header-content">
-        <div className="logo">Anon</div>
-        <nav className="nav-links">
-          <a href="/">Home</a>
-          <a href="/categories">Categories</a>
-          <a href="/mens">Men's</a>
-          <a href="/womens">Women's</a>
-          <a href="/jewelry">Jewelry</a>
-          <a href="/perfume">Perfume</a>
-          <a href="/blog">Blog</a>
-          <a href="/offers">Hot Offers</a>
-        </nav>
-        <div className="header-actions">
-          <input className="search-bar" type="text" placeholder="Enter your product name..." />
-          <div className="icons">
-            <span className="icon">♡</span>
-            <span className="icon">🛒</span>
-            <span className="icon">👤</span>
-          </div>
-        </div>
-      </div>
-    </header>
+              <Header />
+
     <aside className="sidebar">
       <h3>Category</h3>
       <ul>
