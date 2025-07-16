@@ -155,7 +155,6 @@ const Header = () => {
             </div>
           </div>
 
-          {/* <div className="divider"></div> */}
 
           <div className="header-section bottom-bar">
             <nav className="nav-links">
