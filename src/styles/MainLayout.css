@@ -1,5 +1,6 @@
 
 .page-layout {
+
   display: grid;
   grid-template-areas:
     "header header"
@@ -12,13 +13,10 @@
   padding: 10px;
   background: #fff;
 }
-header {
-  grid-area: header;
-  background: none;
-  padding: 10px;
-  color: white;
-}
+
 aside {
+    padding-top: 80px;
+
   grid-area: sidebar;
   background-color: #fff;
   border-radius: 12px;
@@ -31,11 +29,14 @@ aside {
   max-width: 220px;
   height: fit-content;
   align-self: flex-start;
+      margin-top: 100px;
+
 }
 main {
   grid-area: main;
   background-color: white;
   padding: 10px;
+  padding-top: 100px;
 }
 footer {
   grid-area: footer;

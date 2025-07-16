@@ -4,6 +4,7 @@ import CategoryNavigation from "../components/CategoryNavigation";
 import BestSellers from "../components/BestSellers";
 import MainCategories from "../components/MainCategories";
 import NewProducts from "../components/NewProducts/NewProducts";
+import Header from "../components/Header";
 
 import "../styles/HomePage.css";
 import "../styles/CategoryNavigation.css";
@@ -15,29 +16,7 @@ import "../styles/NewProducts.css";
 
 const Home = () => (
   <div className="page-layout">
-    <header className="main-header">
-      <div className="container header-content">
-        <div className="logo">Anon</div>
-        <nav className="nav-links">
-          <a href="/">Home</a>
-          <a href="/categories">Categories</a>
-          <a href="/mens">Men's</a>
-          <a href="/womens">Women's</a>
-          <a href="/jewelry">Jewelry</a>
-          <a href="/perfume">Perfume</a>
-          <a href="/blog">Blog</a>
-          <a href="/offers">Hot Offers</a>
-        </nav>
-        <div className="header-actions">
-          <input className="search-bar" type="text" placeholder="Enter your product name..." />
-          <div className="icons">
-            <span className="icon">♡</span>
-            <span className="icon">🛒</span>
-            <span className="icon">👤</span>
-          </div>
-        </div>
-      </div>
-    </header>
+    <Header />
 
     <aside className="sidebar">
       <CategoryNavigation />
@@ -133,6 +112,7 @@ const Home = () => (
 );
 
 export default Home;
+
 
 
 
