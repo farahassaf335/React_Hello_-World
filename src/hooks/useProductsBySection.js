@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { ProductService } from "../services/getProductService";
-
+import { ProductService } from "../services/productService";
 export const useProductsSections = () => {
   const [topRated, setTopRated] = useState([]);
   const [newArrivals, setNewArrivals] = useState([]);

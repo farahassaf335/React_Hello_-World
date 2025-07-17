@@ -1,41 +1,12 @@
-$text-color: #444;
-$muted-color: #888;
-$diff-color: #ff6f61;
-$bg-light: #fff;
-$bg-divider: #e6e5e5;
-
-@mixin flex($justify: center, $align: center, $gap: 0) {
-  display: flex;
-  justify-content: $justify;
-  align-items: $align;
-  gap: $gap;
-}
-
-@mixin hover-color($color) {
-  transition: color 0.2s;
-  &:hover {
-    color: $color;
-  }
-}
-
-@mixin badge($bg: red) {
-  position: absolute;
-  top: -6px;
-  right: -8px;
-  background-color: $bg;
-  color: white;
-  font-size: 10px;
-  padding: 2px 5px;
-  border-radius: 50%;
-  font-weight: bold;
-}
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mixins;
 
 .main-header {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   font-family: 'Poppins', 'Inter', sans-serif;
   position: fixed;
   top: 0;
-  background-color: $bg-light;
+  background-color: vars.$bg-light;
   z-index: 1000;
   margin: 0 auto;
   width: 100%;
@@ -43,29 +14,34 @@ $bg-divider: #e6e5e5;
 
   a,
   .option {
-    color: $text-color;
-    @include hover-color($diff-color);
+    color: vars.$text-color;
+    @include mixins.hover-color(vars.$diff-color);
   }
+}
+
+.header-section {
+  width: 96%;
+  margin: 0 auto;
 }
 
 .top-bar,
 .middle-bar {
-  @include flex(space-between, center, 1rem);
+  @include mixins.flex(space-between, center, 1rem);
   padding: 0 1rem;
 
   &.top-bar {
-    color: $muted-color;
+    color: vars.$muted-color;
   }
 }
 
 .top-bar {
   height: 0.7cm;
-  border-bottom: 1px solid $bg-divider;
+  border-bottom: 1px solid vars.$bg-divider;
 }
 
 .middle-bar {
   height: 1.5cm;
-  border-bottom: 1px solid $bg-divider;
+  border-bottom: 1px solid vars.$bg-divider;
 }
 
 .bottom-bar {
@@ -81,7 +57,7 @@ $bg-divider: #e6e5e5;
   input {
     width: 100%;
     padding: 8px 1px 8px 10px;
-    border: 1px solid $muted-color;
+    border: 1px solid vars.$muted-color;
     border-radius: 4px;
     font-size: 14px;
   }
@@ -91,7 +67,7 @@ $bg-divider: #e6e5e5;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
-    color: $muted-color;
+    color: vars.$muted-color;
     cursor: pointer;
     padding-left: 10px;
   }
@@ -120,14 +96,14 @@ $bg-divider: #e6e5e5;
   .search-results {
     max-width: 900px;
     margin: 80px auto;
-    background-color: $bg-light;
-    color: $text-color;
+    background-color: vars.$bg-light;
+    color: vars.$text-color;
     padding: 20px;
     border-radius: 12px;
 
     .product-item {
-      @include flex(flex-start, flex-start, 20px);
-      border-bottom: 1px solid $bg-divider;
+      @include mixins.flex(flex-start, flex-start, 20px);
+      border-bottom: 1px solid vars.$bg-divider;
       padding: 16px 0;
       text-align: left;
 
@@ -155,46 +131,41 @@ $bg-divider: #e6e5e5;
 }
 
 .right-icons {
-  @include flex(flex-start, center, 20px);
+  @include mixins.flex(flex-start, center, 20px);
   position: relative;
 
   .icon-with-badge {
     position: relative;
 
     .badge {
-      @include badge();
+      @include mixins.badge();
     }
   }
 }
 
 .nav-links {
-  @include flex(center, center);
+  @include mixins.flex(center, center);
   padding: 5px 0;
 
   a {
     margin: 0 10px;
     text-decoration: none;
-    color: $text-color;
+    color: vars.$text-color;
     font-weight: 500;
     transition: color 0.2s, transform 0.2s;
 
     &:hover {
-      color: $diff-color;
+      color: vars.$diff-color;
       transform: translateY(-2px);
     }
   }
-}
-
-.header-section {
-  width: 96%;
-  margin: 0 auto;
 }
 
 .left-icons {
   a {
     margin-right: 10px;
     cursor: pointer;
-    color: $muted-color;
+    color: vars.$muted-color;
   }
 }
 
@@ -203,13 +174,13 @@ $bg-divider: #e6e5e5;
 }
 
 .right-options {
-  @include flex(flex-start, center, 15px);
+  @include mixins.flex(flex-start, center, 15px);
 
   .option {
     position: relative;
     cursor: pointer;
-    @include flex(flex-start, center);
-    color: $muted-color;
+    @include mixins.flex(flex-start, center);
+    color: vars.$muted-color;
 
     .arrow {
       margin-left: 5px;
@@ -220,8 +191,8 @@ $bg-divider: #e6e5e5;
       position: absolute;
       top: 130%;
       right: 0;
-      background-color: $bg-light;
-      border: 1px solid $bg-light;
+      background-color: vars.$bg-light;
+      border: 1px solid vars.$bg-light;
       border-radius: 4px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       z-index: 10;
@@ -232,7 +203,7 @@ $bg-divider: #e6e5e5;
         font-size: 14px;
 
         &:hover {
-          background-color: $bg-divider;
+          background-color: vars.$bg-divider;
         }
       }
     }

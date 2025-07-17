@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../styles/ProductSections.scss";
 import { useProductsSections } from "../hooks/useProductsBySection";
 
 const ProductSections = () => {

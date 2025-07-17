@@ -1,0 +1,42 @@
+@mixin flex($justify: center, $align: center, $gap: 0) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+@mixin hover-color($color) {
+  transition: color 0.2s;
+  &:hover {
+    color: $color;
+  }
+}
+
+@mixin badge($bg: red) {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background-color: $bg;
+  color: white;
+  font-size: 10px;
+  padding: 2px 5px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+
+
+
+
+
+@mixin ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

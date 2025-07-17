@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../pages/Home";
-import "../styles/Header.scss";
 import useProductSearch from "../hooks/useProductSearch";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
