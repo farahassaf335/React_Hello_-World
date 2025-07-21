@@ -36,7 +36,6 @@
   object-fit: cover;
 }
 
-/* النصوص */
 .category-info {
   display: flex;
   flex-direction: column;

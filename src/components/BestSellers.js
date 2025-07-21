@@ -1,47 +1,24 @@
-import React from "react";
-import "../styles/BestSellers.css";
-
-const bestSellers = [
-  {
-    id: 1,
-    name: "Baby Fabric Shoes",
-    price: 4.0,
-    image: "/image/baby_shoes.jpg",
-  },
-  {
-    id: 2,
-    name: "Men's Hoodie ",
-    price: 7.0,
-    image: "/image/hoodie.jpg",
-  },
-  {
-    id: 3,
-    name: "Men's T-Shirt",
-    price: 3.0,
-    image: "/image/tshirt.jpg",
-  },
-  {
-    id: 4,
-    name: "Women Hat",
-    price: 12.0,
-    image: "/image/hat.jpg",
-  },
-];
-
+import React, { useEffect, useState } from "react";
+import { fetchProductsByCategory } from "../services/productService";
 
 const BestSellers = () => {
-  return (
-    <div className="best-sellers">
-      <h3>Best Sellers</h3>
-      <ul className="best-sellers-list">
-        {bestSellers.map((product) => (
-          <li key={product.id} className="best-seller-item">
-<img src={product.image} alt={product.name} width={100} height={100} />
+  const [products, setProducts] = useState([]);
 
-            <div className="info">
-              <p className="name">{product.name}</p>
-              <p className="price">${product.price.toFixed(2)}</p>
-            </div>
+  useEffect(() => {
+    fetchProductsByCategory("smartphones", 4)
+      .then((data) => setProducts(data))
+      .catch((err) => console.error(err));
+  }, []);
+
+  return (
+    <div>
+      <h2>Best Sellers - Smartphones</h2>
+      <ul>
+        {products.map((product) => (
+          <li key={product.id}>
+            <img src={product.thumbnail} alt={product.title} width={100} />
+            <p>{product.title}</p>
+            <p>${product.price}</p>
           </li>
         ))}
       </ul>
@@ -50,4 +27,6 @@ const BestSellers = () => {
 };
 
 export default BestSellers;
+
+
 

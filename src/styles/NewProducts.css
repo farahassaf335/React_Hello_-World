@@ -45,12 +45,12 @@
 
 .original-price {
   text-decoration: line-through;
-  color: #999; /* لون رمادي فاتح */
+  color: #999; 
   font-size: 0.85rem;
 }
 
 .current-price {
-  color: #e91e63; /* زهري واضح */
+  color: #e91e63; 
   font-weight: bold;
   font-size: 0.9rem;
 }

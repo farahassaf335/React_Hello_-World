@@ -9,6 +9,7 @@ import {
 import { 
   faFacebookF, faTwitter, faInstagram, faLinkedinIn 
 } from "@fortawesome/free-brands-svg-icons";
+
 const Header = () => {
   const [showCurrency, setShowCurrency] = useState(false);
   const [showLanguage, setShowLanguage] = useState(false);
@@ -34,8 +35,10 @@ const Header = () => {
   };
 
   const handleSearch = () => {
-    searchProducts(searchQuery);
-    setShowResults(true);
+    if (searchQuery.trim().length > 2) {
+      searchProducts(searchQuery);
+      setShowResults(true);
+    }
   };
 
   const handleCloseResults = () => {
@@ -67,8 +70,7 @@ const Header = () => {
                         <h3>{product.title}</h3>
                         <p>{product.description}</p>
                         <p>
-                          <strong>${product.price}</strong> | ⭐{" "}
-                          {product.rating}
+                          <strong>${product.price}</strong> | ⭐ {product.rating}
                         </p>
                       </div>
                     </div>
@@ -80,16 +82,16 @@ const Header = () => {
           <div className="header-section h1 top-bar">
             <div className="left-icons">
               <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-<FontAwesomeIcon icon={faFacebookF} />
+                <FontAwesomeIcon icon={faFacebookF} />
               </a>
               <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-<FontAwesomeIcon icon={faTwitter} />
+                <FontAwesomeIcon icon={faTwitter} />
               </a>
               <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-<FontAwesomeIcon icon={faInstagram} />
+                <FontAwesomeIcon icon={faInstagram} />
               </a>
               <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-<FontAwesomeIcon icon={faLinkedinIn} />
+                <FontAwesomeIcon icon={faLinkedinIn} />
               </a>
             </div>
 
@@ -135,28 +137,27 @@ const Header = () => {
                 placeholder="Enter your product name..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
               />
-             <FontAwesomeIcon
-  icon={faSearch}
-  className="search-icon "
-  onClick={handleSearch}
-/>
-
-              
+              <FontAwesomeIcon
+                icon={faSearch}
+                className="search-icon"
+                onClick={handleSearch}
+              />
             </div>
 
             <div className="right-icons">
               <a className="icon-with-badge" href="/user" target="_blank" rel="noopener noreferrer">
-<FontAwesomeIcon icon={faUser} />
+                <FontAwesomeIcon icon={faUser} />
               </a>
 
               <a className="icon-with-badge" href="/likes" target="_blank" rel="noopener noreferrer">
-<FontAwesomeIcon icon={faHeart} />
+                <FontAwesomeIcon icon={faHeart} />
                 <span className="badge">0</span>
               </a>
 
               <a className="icon-with-badge" href="/cart" target="_blank" rel="noopener noreferrer">
-<FontAwesomeIcon icon={faShoppingBag} />
+                <FontAwesomeIcon icon={faShoppingBag} />
                 <span className="badge">0</span>
               </a>
             </div>
@@ -183,3 +184,4 @@ const Header = () => {
 };
 
 export default Header;
+
