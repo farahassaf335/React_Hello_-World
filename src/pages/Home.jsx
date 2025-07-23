@@ -6,11 +6,8 @@ import MainCategories from "../components/MainCategories";
 import NewProducts from "../components/NewProducts/NewProducts";
 import Header from "../components/Header";
 
-import "../styles/HomePage.css";
 import "../styles/CategoryNavigation.css";
-import "../styles/DealOfTheDay.css";
 import "../styles/Header.css";
-import "../styles/MainLayout.css";
 import "../styles/MainCategories.css";
 import "../styles/NewProducts.css";
 

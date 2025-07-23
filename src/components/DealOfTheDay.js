@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "../styles/DealOfTheDay.css";
 
 const DealOfTheDay = () => {
   // Countdown timer state
