@@ -1,10 +1,7 @@
 
 import React from "react";
 import DealOfTheDay from "../components/DealOfTheDay";
-import "../styles/HomePage.css";
 import "../styles/CategoryNavigation.css";
-import "../styles/DealOfTheDay.css";
-import "../styles/MainLayout.css";
 import Header from "../components/Header";
 import ProductSections from "../components/ProductSections";
 
