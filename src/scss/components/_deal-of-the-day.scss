@@ -1,0 +1,100 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mixins;
+
+
+.deal-section-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin: 32px auto;
+}
+.deal-title {
+  margin-bottom: 12px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: vars.$black-color;
+  text-align: left;
+  align-self: flex-start;
+  margin: left 100px;
+}
+
+.deal-of-the-day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: vars.$bg-light;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 24px;
+  max-width: 700px;
+}
+.deal-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  margin-right: 32px;
+  img {
+      width: 140px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+  background: vars.$bg-color;
+  display: block;
+  }
+}
+
+.deal-info {
+  flex: 1;
+}
+.deal-rating {
+  color: vars.$rating-color;
+  font-size: 1.2em;
+  margin-bottom: 8px;
+}
+.deal-pricing {
+  margin: 12px 0;
+}
+.deal-price {
+  color: vars.$red-color;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-right: 12px;
+}
+.deal-old-price {
+  color: vars.$gray-color;
+  text-decoration: line-through;
+  font-size: 1.1em;
+}
+.deal-add-to-cart {
+  background: vars.$rating-color;
+  color: vars.$white-color;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 24px;
+  font-size: 1em;
+  cursor: pointer;
+  margin: 12px 0;
+  transition: background 0.2s;
+  &:hover {
+    background: darken(vars.$diff-color, 10%);
+  }
+}
+.deal-meta {
+  font-size: 0.95em;
+  color: vars.$text-color;
+  margin-bottom: 10px;
+}
+.deal-timer {
+  display: flex;
+  gap: 16px;
+  font-size: 1.1em;
+  margin-top: 8px;
+}
+.deal-timer div {
+  background: vars.$bg-color;
+  border-radius: 4px;
+  padding: 6px 12px;
+  min-width: 60px;
+  text-align: center;
+}

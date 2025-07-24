@@ -1,15 +1,17 @@
 import React from "react";
 import DealOfTheDay from "../components/DealOfTheDay";
-import CategoryNavigation from "../components/CategoryNavigation";
-import BestSellers from "../components/BestSellers";
-import MainCategories from "../components/MainCategories";
-import NewProducts from "../components/NewProducts/NewProducts";
+import "../styles/HomePage.css";
+import "../styles/CategoryNavigation.css";
+import "../styles/DealOfTheDay.css";
+import "../styles/Header.css";
+import "../styles/MainLayout.css";
 import Header from "../components/Header";
 
-import "../styles/CategoryNavigation.css";
-import "../styles/Header.css";
-import "../styles/MainCategories.css";
-import "../styles/NewProducts.css";
+import CategoryNavigation from "../components/CategoryNavigation";
+import BestSellers from "../components/BestSellers";
+import ProductSections from "../components/ProductSections";
+import MainCategories from "../components/MainCategories";
+import NewProducts from "../components/NewProducts";
 
 const Home = () => (
   <div className="page-layout">
@@ -32,6 +34,9 @@ const Home = () => (
         <div className="hero-image">
           <img src="/image/photo1.jpg" alt="Modern Sunglasses" />
         </div>
+     
+       <ProductSections />
+
       </section>
 
       <MainCategories />

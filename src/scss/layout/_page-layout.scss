@@ -1,0 +1,19 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mixins;
+.page-layout {
+  @include mixins.grid-layout;
+}
+
+aside {
+  grid-area: sidebar;
+  background-color: vars.$bg-divider;
+  padding: 10px;
+}
+main {
+  grid-area: main;
+  background-color: vars.$bg-light;
+  padding: 10px;
+}
+footer {
+  @include mixins.footer-area;
+}

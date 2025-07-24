@@ -7,12 +7,12 @@
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
-    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@fortawesome/react-fontawesome": "^0.2.3",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.10.0",
+    "axios": "^1.11.0",
     "postcss": "^8.4.21",
     "postcss-loader": "^6.2.1",
     "react": "^19.1.0",
@@ -26,7 +26,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "scss": "sass src/scss/main.scss public/main.css --source-map --style=compressed",
+    "scss:watch": "sass src/scss/main.scss public/main.css --source-map --watch"
   },
   "eslintConfig": {
     "extends": [
@@ -45,5 +47,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "sass": "^1.89.2",
+    "sass-loader": "^16.0.5"
   }
 }
