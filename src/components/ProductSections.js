@@ -1,14 +1,20 @@
 import React from "react";
 import "../styles/ProductSections.css";
-import useProductsBySection from "../hooks/useProductsBySection"; 
+import { useProductsSections } from "../hooks/useProductsBySection";
 
 const sections = ["New Arrivals", "Trending", "Top Rated"];
 
 const ProductSections = () => {
-  const { productsBySection, loading, error } = useProductsBySection();
+  const { topRated, newArrivals, trending, loading, error } = useProductsSections();
 
   if (loading) return <p>Loading products...</p>;
   if (error) return <p className="error-message">{error}</p>;
+
+  const productsBySection = {
+    "Top Rated": topRated,
+    "New Arrivals": newArrivals,
+    "Trending": trending,
+  };
 
   return (
     <section className="product-sections container">
@@ -16,7 +22,7 @@ const ProductSections = () => {
         {sections.map((section) => (
           <div className="section-column" key={section}>
             <h3>{section}</h3>
-            {productsBySection[section].slice(0, 4).map((product) => (
+            {productsBySection[section]?.slice(0, 4).map((product) => (
               <div className="product-card" key={product.id}>
                 <div className="image-container">
                   <img

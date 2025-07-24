@@ -1,39 +1,44 @@
-import { useState, useEffect } from "react";
-import { ProductService } from "../services/getProductService";
-
-const useProductsBySection = () => {
-  const [productsBySection, setProductsBySection] = useState({
-    "New Arrivals": [],
-    "Trending": [],
-    "Top Rated": []
-  });
-
-  const [loading, setLoading] = useState(false);
+import { useEffect, useState } from "react";
+import { ProductService } from "../services/productService";
+export const useProductsSections = () => {
+  const [topRated, setTopRated] = useState([]);
+  const [newArrivals, setNewArrivals] = useState([]);
+  const [trending, setTrending] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     setLoading(true);
     ProductService.getAllProducts()
-      .then((response) => {
-        const allProducts = response.data.products;
+      .then((res) => {
+        const products = res.data.products;
 
-        const sectionSize = Math.ceil(allProducts.length / 3);
-        setProductsBySection({
-          "New Arrivals": allProducts.slice(0, sectionSize),
-          "Trending": allProducts.slice(sectionSize, sectionSize * 2),
-          "Top Rated": allProducts.slice(sectionSize * 2)
-        });
+        const topRated = [...products]
+          .sort((a, b) => b.rating - a.rating)
+          .slice(0, 4);
+
+        const newArrivals = [...products]
+          .sort((a, b) => b.id - a.id)
+          .slice(0, 4);
+
+        const trending = [...products]
+          .map(product => ({
+            ...product,
+            discountAmount: product.price * (product.discountPercentage / 100),
+          }))
+          .sort((a, b) => b.discountAmount - a.discountAmount)
+          .slice(0, 4);
+
+        setTopRated(topRated);
+        setNewArrivals(newArrivals);
+        setTrending(trending);
       })
       .catch((err) => {
-        console.error("Error fetching products:", err);
-        setError("Failed to fetch products.");
+        console.error(err);
+        setError(err);
       })
-      .finally(() => {
-        setLoading(false);
-      });
+      .finally(() => setLoading(false));
   }, []);
 
-  return { productsBySection, loading, error };
+  return { topRated, newArrivals, trending, loading, error };
 };
-
-export default useProductsBySection;

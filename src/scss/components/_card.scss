@@ -1,0 +1,83 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mixins;
+
+.product-card {
+  border-radius: 10px;
+  border: 1px solid vars.$border-color;
+  gap: 12px;
+  flex-direction: row;
+
+  .image-container {
+    flex-shrink: 0;
+    height: 50px;
+
+    .product-image {
+      height: 100%;
+    }
+  }
+
+  .text-container {
+    flex: 1;
+    overflow: hidden;
+
+    h4 {
+      margin: 0;
+      @include mixins.ellipsis;
+    }
+
+    .product-category {
+      font-size: 12px;
+      color: vars.$text-light;
+      margin: 2px 0;
+      @include mixins.ellipsis;
+    }
+
+    .price {
+      font-size: 13px;
+      color: vars.$red-color;
+    }
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: vars.$modal-bg;
+  @include mixins.flex-center;
+  z-index: 9999;
+
+  .modal-content {
+    background: vars.$white-color;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    position: relative;
+    text-align: left;
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .modal-image {
+      display: block;
+      margin: 0 auto 15px auto;
+      max-width: 80%;
+      max-height: 250px;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: transparent;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  }
+}

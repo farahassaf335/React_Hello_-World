@@ -1,15 +1,9 @@
 
 import React from "react";
 import DealOfTheDay from "../components/DealOfTheDay";
-import "../styles/HomePage.css";
 import "../styles/CategoryNavigation.css";
-import "../styles/DealOfTheDay.css";
-import "../styles/Header.css";
-import "../styles/MainLayout.css";
 import Header from "../components/Header";
-import Carousel from '../components/Carousel';
 import ProductSections from "../components/ProductSections";
-
 
 const Home = () => (
   <div className="page-layout">
@@ -27,17 +21,18 @@ const Home = () => (
     </aside>
     <main>
       <section className="hero-section container">
-  <div className="hero-left">
-    <h1 className="hero-title">Trending Accessories<br /><span>MODERN SUNGLASSES</span></h1>
-    <p className="hero-sub">Starting at $15.00</p>
-    <button className="btn btn-primary">Shop Now</button>
-  </div>
-  <div className="hero-image">
-    <Carousel />
-  </div>
-</section>
-  <ProductSections />
+        <div className="hero-left">
+          <h1 className="hero-title">Trending Accessories<br /><span>MODERN SUNGLASSES</span></h1>
+          <p className="hero-sub">Starting at $15.00</p>
+          <button className="btn btn-primary">Shop Now</button>
+        </div>
+        <div className="hero-image">
+          <img src="/image/photo1.jpg" alt="Modern Sunglasses" />
+        </div>
+     
+       <ProductSections />
 
+      </section>
       <section className="categories-section container">
         <div className="main-content">
           <div className="product-tabs">
