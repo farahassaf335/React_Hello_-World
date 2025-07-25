@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ProductService } from "../services/productService";
+import { fetchProductsByCategory } from "../services/productService";
 export const useProductsSections = () => {
   const [topRated, setTopRated] = useState([]);
   const [newArrivals, setNewArrivals] = useState([]);
@@ -9,9 +9,15 @@ export const useProductsSections = () => {
 
   useEffect(() => {
     setLoading(true);
-    ProductService.getAllProducts()
-      .then((res) => {
-        const products = res.data.products;
+    // جلب المنتجات من عدة تصنيفات وتجميعها
+    Promise.all([
+      fetchProductsByCategory("smartphones", 10),
+      fetchProductsByCategory("laptops", 10),
+      fetchProductsByCategory("fragrances", 10),
+      fetchProductsByCategory("skincare", 10)
+    ])
+      .then((results) => {
+        const products = results.flat();
 
         const topRated = [...products]
           .sort((a, b) => b.rating - a.rating)

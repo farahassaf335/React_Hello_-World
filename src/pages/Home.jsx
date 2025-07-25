@@ -1,28 +1,33 @@
-
 import React from "react";
 import DealOfTheDay from "../components/DealOfTheDay";
+import "../styles/HomePage.css";
 import "../styles/CategoryNavigation.css";
+import "../styles/DealOfTheDay.css";
+import "../styles/Header.css";
+import "../styles/MainLayout.css";
 import Header from "../components/Header";
+
+import CategoryNavigation from "../components/CategoryNavigation";
+import BestSellers from "../components/BestSellers";
 import ProductSections from "../components/ProductSections";
+import MainCategories from "../components/MainCategories";
+import NewProducts from "../components/NewProducts";
 
 const Home = () => (
   <div className="page-layout">
-              <Header />
+    <Header />
 
     <aside className="sidebar">
-      <h3>Category</h3>
-      <ul>
-        <li>Clothes</li>
-        <li>Footwear</li>
-        <li>Jewelry</li>
-        <li>Cosmetics</li>
-        <li>Gadgets</li>
-      </ul>
+      <CategoryNavigation />
+      <BestSellers />
     </aside>
+
     <main>
       <section className="hero-section container">
         <div className="hero-left">
-          <h1 className="hero-title">Trending Accessories<br /><span>MODERN SUNGLASSES</span></h1>
+          <h1 className="hero-title">
+            Trending Accessories<br /><span>MODERN SUNGLASSES</span>
+          </h1>
           <p className="hero-sub">Starting at $15.00</p>
           <button className="btn btn-primary">Shop Now</button>
         </div>
@@ -33,6 +38,9 @@ const Home = () => (
        <ProductSections />
 
       </section>
+
+      <MainCategories />
+
       <section className="categories-section container">
         <div className="main-content">
           <div className="product-tabs">
@@ -45,7 +53,10 @@ const Home = () => (
               <img src="/image/photo2.jpg" alt="Product" />
               <div className="product-info">
                 <h4>Product Name</h4>
-                <div className="price">$49.00 <span className="old-price">$59.00</span></div>
+                <div className="price">
+                  <span className="current-price">$49.00</span>
+                  <span className="old-price">$59.00</span>
+                </div>
                 <div className="rating">★★★★★ 4.8</div>
               </div>
               <div className="quick-actions">
@@ -56,11 +67,17 @@ const Home = () => (
           </div>
         </div>
       </section>
+
       <div className="deal-section-wrapper container">
         <h2 className="deal-title">Deal Of The Day</h2>
         <DealOfTheDay />
       </div>
+
+      <div className="container">
+        <NewProducts />
+      </div>
     </main>
+
     <footer className="main-footer">
       <div className="container footer-content">
         <div className="footer-columns">
@@ -97,3 +114,10 @@ const Home = () => (
 );
 
 export default Home;
+
+
+
+
+
+
+
