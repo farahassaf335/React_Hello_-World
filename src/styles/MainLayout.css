@@ -1,0 +1,47 @@
+
+.page-layout {
+
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  grid-template-columns: 210px 1fr;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  gap: 10px;
+  padding: 10px;
+  background: #fff;
+}
+
+aside {
+    padding-top: 80px;
+
+  grid-area: sidebar;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 18px 14px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  width: fit-content;
+  min-width: unset;
+  max-width: 220px;
+  height: fit-content;
+  align-self: flex-start;
+      margin-top: 100px;
+
+}
+main {
+  grid-area: main;
+  background-color: white;
+  padding: 10px;
+  padding-top: 100px;
+}
+footer {
+  grid-area: footer;
+  background-color: #222;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}

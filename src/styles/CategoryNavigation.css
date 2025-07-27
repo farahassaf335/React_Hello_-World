@@ -1,0 +1,29 @@
+.category-nav {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 200px;
+}
+
+.category-nav h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.category-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.category-nav li {
+  padding: 5px 0;
+  cursor: pointer;
+  color: #444;
+}
+
+.category-nav li:hover {
+  color: #e91e63;
+}
+
+
