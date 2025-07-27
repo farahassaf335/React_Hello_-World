@@ -3,6 +3,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import '../styles/Carousel.css';
 
 const images = [
   '/image/pic3.jpg',
@@ -31,3 +36,4 @@ function Carousel() {
 }
 
 export default Carousel;
+   

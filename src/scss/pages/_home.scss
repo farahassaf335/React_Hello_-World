@@ -3,6 +3,7 @@
 
 .hero-section {
   &.container {
+    @include mixins.hero-container;
     display: grid;
     grid-template-columns: 1fr 420px;
     align-items: center;
@@ -36,25 +37,38 @@
 }
 
 .hero-image {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   width: 100%;
   max-width: 800px;
-  height: 100%;
+  height: 320px;
   margin: 0 auto;
   overflow: hidden;
   border-radius: 18px;
   background: #f1f1f1;
-}
-  .carousel-container {
-    width: 100%;
-    height: 100%;
-  }
 
-  .swiper-slide img {
+  img {
+    max-width: 370px;
     width: 100%;
-    height: 100%;
+    height: 320px;
     border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+    object-fit: cover;
+    background: vars.$bg-light;
   }
+}
 
+.carousel-container {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+}
 
 .container {
   width: 100%;
