@@ -1,6 +1,6 @@
 @use '../abstracts/variables' as vars;
 @use '../abstracts/mixins' as mixins;
-
+@use "sass:color";
 
 .deal-section-wrapper {
   display: flex;
@@ -77,7 +77,7 @@
   margin: 12px 0;
   transition: background 0.2s;
   &:hover {
-    background: darken(vars.$diff-color, 10%);
+    background: color.adjust(vars.$diff-color, $lightness: -10%);
   }
 }
 .deal-meta {
