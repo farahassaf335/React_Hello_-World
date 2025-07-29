@@ -1,3 +1,51 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 .product-sections {
   font-family: sans-serif;
 }
@@ -457,6 +505,10 @@ footer {
   margin: 12px 0;
   transition: background 0.2s;
 }
+.deal-add-to-cart:hover {
+  background: rgb(255, 64.5189873418, 46);
+}
+
 .deal-meta {
   font-size: 0.95em;
   color: #444;
@@ -476,6 +528,17 @@ footer {
   padding: 6px 12px;
   min-width: 60px;
   text-align: center;
+}
+
+.hero-section.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .hero-left {
@@ -540,6 +603,10 @@ footer {
   color: #fff;
   box-shadow: 0 2px 8px rgba(255, 111, 97, 0.08);
 }
+.btn-primary:hover {
+  background: rgb(255, 87.7594936709, 71.5);
+}
+
 .product-tabs {
   display: flex;
   gap: 10px;

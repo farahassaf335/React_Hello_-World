@@ -32,10 +32,10 @@ const Home = () => (
           <img src="/image/photo1.jpg" alt="Modern Sunglasses" />
         </div>
      
-       <ProductSections />
+       
 
       </section>
-
+      <ProductSections />
       <MainCategories />
 
       <section className="categories-section container">
