@@ -21,3 +21,9 @@
 
 
 @use 'pages/home';
+
+@use 'base/reset';
+@use 'abstracts/variables';
+@use 'layout/hero';
+@use 'components/carousel';
+

@@ -1,0 +1,36 @@
+.hero-image {
+  width: 100%;
+  max-width: 420px;
+  height: 320px;
+  margin: 0 auto;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+ 
+
