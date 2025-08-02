@@ -1,0 +1,60 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mixins;
+
+
+.new-products {
+  padding: 20px;
+  background-color: vars.$category-bg-color;
+}
+
+.new-products-list {
+  @include mixins.flex(flex-start, center, 15px);
+
+  overflow-x: auto;
+  padding: 0;
+  list-style: none;
+}
+
+.new-product-item {
+  @include mixins.flex(column, center);
+  border: 1px solid vars.$border-color;
+  padding: 10px;
+  background-color: vars.$white-color;
+  border-radius: 8px;
+  min-width: 120px;
+}
+
+.new-product-item img {
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.info .name {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: vars.$black-color;
+}
+
+.info .price {
+  color: vars.$diff-color;
+  font-weight: bold;
+}
+
+.price {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: vars.$text-light;
+  font-size: 0.85rem;
+}
+
+.current-price {
+  color: vars.$diff-color;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+

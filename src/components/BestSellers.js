@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchProductsByCategory } from "../services/productService";
+import '../scss/main.scss'; 
 
 const BestSellers = () => {
   const [products, setProducts] = useState([]);
@@ -11,14 +12,16 @@ const BestSellers = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Best Sellers - Smartphones</h2>
-      <ul>
+    <div className="best-sellers">
+      <h3>Best Sellers - Smartphones</h3>
+      <ul className="best-sellers-list">
         {products.map((product) => (
-          <li key={product.id}>
-            <img src={product.thumbnail} alt={product.title} width={100} />
-            <p>{product.title}</p>
-            <p>${product.price}</p>
+          <li key={product.id} className="best-seller-item">
+            <img src={product.thumbnail} alt={product.title} />
+            <div className="info">
+              <p className="name">{product.title}</p>
+              <p className="price">${product.price}</p>
+            </div>
           </li>
         ))}
       </ul>
@@ -27,6 +30,7 @@ const BestSellers = () => {
 };
 
 export default BestSellers;
+
 
 
 

@@ -1,0 +1,62 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mixins;
+
+.main-categories-wrapper {
+  margin: 20px 0;
+  padding: 10px;
+}
+
+.main-categories-grid {
+  @include mixins.flex(flex-start, flex-start, 15px);
+  flex-wrap: wrap;
+}
+
+.category-item {
+  @include mixins.flex(flex-start, center);
+  background-color: vars.$category-bg-color;
+  padding: 8px 12px;
+  border-radius: 8px;
+  min-width: 160px;
+  max-width: 200px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.category-item:hover {
+  transform: translateY(-3px);
+}
+
+.category-item img {
+  width: 36px;
+  height: 36px;
+  border-radius: 5px;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.category-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: vars.$category-title-color;
+  margin-bottom: 2px;
+}
+
+.category-show-all {
+  font-size: 11px;
+  color: vars.$category-show-all-color;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .main-categories-grid {
+    flex-direction: column;
+  }
+}
+
+
