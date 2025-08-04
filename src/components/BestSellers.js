@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchProductsByCategory } from "../services/productService";
-import '../scss/main.scss'; 
+
 
 const BestSellers = () => {
   const [products, setProducts] = useState([]);

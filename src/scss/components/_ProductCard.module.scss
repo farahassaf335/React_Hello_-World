@@ -5,7 +5,8 @@
   @include mixins.flex(column, center);
   background-color: vars.$white-color;
   border: 1px solid vars.$border-color;
-  @include vars.rounded(8px);
+ @include mixins.rounded(8px);
+
   padding: 10px;
   width: 150px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);

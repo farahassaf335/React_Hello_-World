@@ -31,24 +31,8 @@ $rating-color: #f7b500;
 $price-color: #e91e63;
 $original-price-color: #999;
 
-// Mixins
-@mixin flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-@mixin rounded($radius: 8px) {
-  border-radius: $radius;
-}
 
-@mixin text-bold {
-  font-weight: bold;
-}
-
-@mixin text-muted {
-  color: $muted-color;
-}
 
 
 
