@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useQuery } from "@tanstack/react-query";
 import { fetchProductsByCategory } from "../services/productService";
 
 const BestSellers = () => {
-  const [products, setProducts] = useState([]);
+  const { data: products, error, isLoading } = useQuery(
+    {
+      queryKey: ["products", "smartphones"],
+      queryFn: () => fetchProductsByCategory("smartphones", 4)
+    }
+  );
 
-  useEffect(() => {
-    fetchProductsByCategory("smartphones", 4)
-      .then((data) => setProducts(data))
-      .catch((err) => console.error(err));
-  }, []);
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error fetching products</div>;
 
   return (
     <div>
@@ -25,6 +28,7 @@ const BestSellers = () => {
     </div>
   );
 };
+ 
 
 export default BestSellers;
 
