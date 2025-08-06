@@ -1,5 +1,7 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mixins;
+
 .best-sellers {
-  background-color: #fff;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -9,10 +11,10 @@
 
 .best-sellers h3 {
   font-size: 18px;
-  color: #111;
+  color: vars.$black-color;
   margin-bottom: 15px;
   font-weight: 600;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid vars.$border-color;
   padding-bottom: 10px;
 }
 
@@ -23,9 +25,7 @@
 }
 
 .best-seller-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  @include mixins.flex(flex-start, center, 12px);
   margin-bottom: 15px;
 }
 
@@ -43,13 +43,15 @@
 
 .best-seller-item .name {
   font-size: 14px;
-  color: #333;
+  color: vars.$text-color;
   margin: 0;
 }
 
 .best-seller-item .price {
   font-size: 13px;
-  color: #e91e63;
+  color: vars.$diff-color;
   font-weight: bold;
   margin-top: 4px;
 }
+
+

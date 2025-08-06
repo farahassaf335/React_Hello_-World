@@ -1,24 +1,25 @@
-/* src/components/NewProducts.css */
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mixins;
+
+
 .new-products {
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: vars.$category-bg-color;
 }
 
 .new-products-list {
-  display: flex;
-  gap: 15px;
+  @include mixins.flex(flex-start, center, 15px);
+
   overflow-x: auto;
   padding: 0;
   list-style: none;
 }
 
 .new-product-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid #eee;
+  @include mixins.flex(column, center);
+  border: 1px solid vars.$border-color;
   padding: 10px;
-  background-color: #fff;
+  background-color: vars.$white-color;
   border-radius: 8px;
   min-width: 120px;
 }
@@ -31,12 +32,14 @@
 .info .name {
   font-weight: bold;
   margin-bottom: 5px;
+  color: vars.$black-color;
 }
 
 .info .price {
-  color: #e91e63;
+  color: vars.$diff-color;
   font-weight: bold;
 }
+
 .price {
   display: flex;
   gap: 6px;
@@ -45,12 +48,13 @@
 
 .original-price {
   text-decoration: line-through;
-  color: #999; 
+  color: vars.$text-light;
   font-size: 0.85rem;
 }
 
 .current-price {
-  color: #e91e63; 
+  color: vars.$diff-color;
   font-weight: bold;
   font-size: 0.9rem;
 }
+

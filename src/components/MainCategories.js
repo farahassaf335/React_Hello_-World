@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../styles/MainCategories.css";
+
 import { fetchCategories } from "../services/categoryService2";
 
 const categoryImages = {

@@ -1,6 +1,4 @@
-// src/components/NewProducts/NewProducts.js
 import React from "react";
-import "../styles/NewProducts.css";
 
 
 const newProducts = [
