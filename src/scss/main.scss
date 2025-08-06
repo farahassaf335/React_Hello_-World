@@ -1,14 +1,14 @@
-
-@use 'abstracts/variables';
+@use 'abstracts/variables' ;
 @use 'abstracts/functions';
 @use 'abstracts/mixins';
+
 
 @use 'base/reset';
 @use 'base/typography';
 @use 'base/base';
 @use 'base/app';
 
-@use './layout/grid';
+@use 'layout/grid';
 @use 'layout/header';
 @use 'layout/footer';
 @use 'layout/page-layout';
@@ -16,8 +16,13 @@
 
 @use 'components/buttons';
 @use 'components/modal';
-@use './components/card';
+@use 'components/card';
 @use 'components/deal-of-the-day';
-
+@use 'components/best-sellers'; 
+ @use 'components/main-categories'; 
+ @use 'components/category-navigation';
+@use 'components/_NewProducts';
+@use 'components/ProductCard.module';
 
 @use 'pages/home';
+

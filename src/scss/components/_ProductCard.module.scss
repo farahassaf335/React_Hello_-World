@@ -1,0 +1,64 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mixins;
+
+.product-card {
+  @include mixins.flex(column, center);
+  background-color: vars.$white-color;
+  border: 1px solid vars.$border-color;
+ @include mixins.rounded(8px);
+
+  padding: 10px;
+  width: 150px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.image-container {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-name {
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  color: vars.$text-color;
+  font-weight: 500;
+}
+
+.rating {
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+.filled-star {
+  color: vars.$rating-color;
+}
+
+.empty-star {
+  color: #ddd;
+}
+
+.price {
+
+  @include mixins.flex(center, center, 6px);
+
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: vars.$original-price-color;
+  font-size: 0.85rem;
+}
+
+.current-price {
+  color: vars.$price-color;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+

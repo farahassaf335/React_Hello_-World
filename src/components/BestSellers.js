@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchProductsByCategory } from "../services/productService";
 
+
 const BestSellers = () => {
   const { data: products, error, isLoading } = useQuery(
     {
@@ -14,14 +15,16 @@ const BestSellers = () => {
   if (error) return <div>Error fetching products</div>;
 
   return (
-    <div>
-      <h2>Best Sellers - Smartphones</h2>
-      <ul>
+    <div className="best-sellers">
+      <h3>Best Sellers - Smartphones</h3>
+      <ul className="best-sellers-list">
         {products.map((product) => (
-          <li key={product.id}>
-            <img src={product.thumbnail} alt={product.title} width={100} />
-            <p>{product.title}</p>
-            <p>${product.price}</p>
+          <li key={product.id} className="best-seller-item">
+            <img src={product.thumbnail} alt={product.title} />
+            <div className="info">
+              <p className="name">{product.title}</p>
+              <p className="price">${product.price}</p>
+            </div>
           </li>
         ))}
       </ul>
@@ -31,6 +34,7 @@ const BestSellers = () => {
  
 
 export default BestSellers;
+
 
 
 

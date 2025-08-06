@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/CategoryNavigation.css";
+
 import { GiDress } from "react-icons/gi";
 import { GiConverseShoe } from "react-icons/gi";
 import { GiDiamondRing } from "react-icons/gi";
