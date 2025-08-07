@@ -1,96 +1,199 @@
 @use '../abstracts/variables' as vars;
 @use '../abstracts/mixins' as mixins;
 @use "sass:color";
+
 .hero-section {
-  &.container {
-    @include mixins.hero-container;
-    display: grid;
-    grid-template-columns: 1fr 420px;
-    align-items: center;
-    gap: 20px;
-    padding: 10px 0 0 0;
-  }
-}
-
-.hero-left {
-  min-width: 260px;
-  max-width: 600px;
-}
-
-.hero-title {
-  font-size: 3.2rem;
-  font-weight: 700;
-  margin-bottom: 18px;
-  line-height: 1.1;
-
-  span {
-    font-size: 2.3rem;
-    display: block;
-    margin-top: 8px;
-    color: vars.$primary-color;
-  }
-}
-
-.hero-sub {
-  font-size: 1.18rem;
-  margin-bottom: 22px;
-}
-
-.hero-image {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  position: relative;
   width: 100%;
-  max-width: 800px;
-  height: 320px;
-  margin: 0 auto;
+  height: auto; // <-- هذا هو التعديل المهم
+  min-height: unset; // إزالة الارتفاع الأدنى
+  border-radius: 18px;
   overflow: hidden;
-  border-radius: 18px;
-  background: #f1f1f1;
+  margin: 20px 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
 
-  img {
-    max-width: 370px;
-    width: 100%;
-    height: 320px;
-    border-radius: 18px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
-    object-fit: cover;
-    background: vars.$bg-light;
+  .container {
+    padding: 0; // نلغي البادينغ حتى ياخذ عرض الكاروسيل تمامًا
+    max-width: unset;
+  }
+}
+body {
+  font-size: 14px; // بدل 16px الافتراضي
+  overflow-x: hidden; // هذا مهم لإزالة الشريط الأفقي
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 0 10px; // تقليل البادينغ
+  max-width: 100%; // منع تجاوز العرض
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+* {
+  box-sizing: border-box;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 600px;
+  color: white;
+  padding: 60px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 18px;
+  backdrop-filter: blur(8px);
+  text-align: left; /* محاذاة النص لليسار */
+
+  .hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.1;
+    letter-spacing: -1px;
+
+    span {
+      font-size: 3rem;
+      display: block;
+      margin-top: 10px;
+      color: vars.$primary-color;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+  }
+
+  .hero-sub {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+    opacity: 0.9;
+  }
+
+  .btn-primary {
+    @include mixins.btn-base;
+    background: vars.$primary-color;
+    color: vars.$white-color;
+    box-shadow: 0 4px 16px rgba(vars.$primary-color, 0.3);
+    padding: 16px 40px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    &:hover {
+      background: color.adjust(vars.$primary-color, $lightness: -12%);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(vars.$primary-color, 0.4);
+    }
   }
 }
 
-.carousel-container {
-  width: 100%;
-  height: 100%;
+.hero-carousel {
+  /* ... تبقى كما هي ... */
 }
 
-.swiper-slide img {
-  width: 100%;
-  height: 100%;
-  border-radius: 18px;
+@media (max-width: 1200px) {
+  .hero-section {
+    height: 70vh;
+    min-height: 500px;
+
+    .container {
+      padding: 0 60px;
+    }
+  }
+
+  .hero-content {
+    padding: 40px;
+
+    .hero-title {
+      font-size: 3rem;
+
+      span {
+        font-size: 2.2rem;
+      }
+    }
+  }
 }
 
+@media (max-width: 768px) {
+  .hero-section {
+    height: 60vh;
+    min-height: 400px;
+
+    .container {
+      padding: 0 30px;
+      justify-content: center;
+    }
+  }
+
+  .hero-content {
+    width: 90%;
+    padding: 30px;
+    text-align: center;
+
+    .hero-title {
+      font-size: 2.2rem;
+
+      span {
+        font-size: 1.8rem;
+      }
+    }
+
+    .hero-sub {
+      font-size: 1.2rem;
+    }
+
+    .btn-primary {
+      padding: 14px 30px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    min-height: 350px;
+  }
+
+  .hero-content {
+    padding: 25px;
+
+    .hero-title {
+      font-size: 1.8rem;
+
+      span {
+        font-size: 1.4rem;
+      }
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+    }
+  }
+}
+
+/* بقية أنماط الموقع (بدون تغيير) */
 .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 5px;
-}
-
-/* Buttons */
-.btn {
-  @include mixins.btn-base;
-  margin-top: 10px;
-}
-
-.btn-primary {
-  background: vars.$primary-color;
-  color: vars.$white-color;
-  box-shadow: 0 2px 8px rgba(vars.$primary-color, 0.08);
-
-  &:hover {
-    background: color.adjust(vars.$primary-color, $lightness: -5%);
-  }
+  padding: 0 20px;
 }
 
 .product-tabs {
