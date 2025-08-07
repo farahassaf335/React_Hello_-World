@@ -1,9 +1,28 @@
 @use '../abstracts/variables' as vars;
+
 @mixin flex($justify: center, $align: center, $gap: 0) {
   display: flex;
   justify-content: $justify;
   align-items: $align;
   gap: $gap;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin rounded($radius: 8px) {
+  border-radius: $radius;
+}
+
+@mixin text-bold {
+  font-weight: bold;
+}
+
+@mixin text-muted {
+  color: $muted-color;
 }
 
 @mixin hover-color($color) {
@@ -31,12 +50,6 @@
   text-overflow: ellipsis;
 }
 
-@mixin flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 @mixin btn-base {
   padding: 10px 28px;
   border: none;
@@ -60,11 +73,13 @@
   padding: 10px;
   background: $bg;
 }
+
 @mixin main-area($bg: vars.$white-color, $padding: 10px) {
   grid-area: main;
   background-color: $bg;
   padding: $padding;
 }
+
 @mixin footer-area($bg: vars.$bg-footer, $color: vars.$white-color, $padding: 10px) {
   grid-area: footer;
   background-color: $bg;
@@ -72,6 +87,7 @@
   padding: $padding;
   text-align: center;
 }
+
 @mixin hero-container($padding: 40px 20px, $bg: vars.$bg-light) {
   display: flex;
   flex-direction: row;

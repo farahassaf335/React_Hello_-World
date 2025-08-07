@@ -1,6 +1,4 @@
-// src/components/NewProducts/ProductCard.js
 import React from 'react';
-import "../styles/ProductCard.module.css";
 
 
 const ProductCard = ({ product }) => {

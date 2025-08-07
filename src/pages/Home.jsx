@@ -1,7 +1,6 @@
 import React from "react";
 import DealOfTheDay from "../components/DealOfTheDay";
-import "../styles/CategoryNavigation.css";
-import "../styles/Header.css";
+
 import Header from "../components/Header";
 
 import CategoryNavigation from "../components/CategoryNavigation";
