@@ -1,4 +1,3 @@
-@charset "UTF-8";
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -706,7 +705,7 @@ img {
   background: rgba(0, 0, 0, 0.4);
   border-radius: 18px;
   backdrop-filter: blur(8px);
-  text-align: left; /* محاذاة النص لليسار */
+  text-align: left;
 }
 .hero-content .hero-title {
   font-size: 4rem;
@@ -753,10 +752,6 @@ img {
   background: rgb(255, 55.2227848101, 35.8);
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(255, 111, 97, 0.4);
-}
-
-.hero-carousel {
-  /* ... تبقى كما هي ... */
 }
 
 @media (max-width: 1200px) {
@@ -821,7 +816,6 @@ img {
     font-size: 1rem;
   }
 }
-/* بقية أنماط الموقع (بدون تغيير) */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -964,157 +958,6 @@ img {
   color: #bbb;
 }
 
-.main-hero {
-  position: relative;
-  width: 100%;
-  height: 80vh;
-  min-height: 600px;
-  border-radius: 18px;
-  overflow: hidden;
-  margin: 20px 0;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-}
-.main-hero-container {
-  position: relative;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  z-index: 2;
-  padding: 0 80px;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-.main-hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%);
-  z-index: 1;
-}
-.main-hero-content {
-  position: relative;
-  z-index: 3;
-  max-width: 600px;
-  color: white;
-  padding: 60px;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 18px;
-  backdrop-filter: blur(8px);
-}
-.main-hero-content h1 {
-  font-size: 4rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-  line-height: 1.1;
-  letter-spacing: -1px;
-}
-.main-hero-content h1 span {
-  font-size: 3rem;
-  display: block;
-  margin-top: 10px;
-  color: #ff6f61;
-  font-weight: 800;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-.main-hero-content p {
-  font-size: 1.5rem;
-  margin-bottom: 30px;
-  font-weight: 300;
-  opacity: 0.9;
-}
-
-.hero-btn {
-  padding: 10px 28px;
-  border: none;
-  border-radius: 24px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-  background: #ff6f61;
-  color: #fff;
-  box-shadow: 0 4px 16px rgba(255, 111, 97, 0.3);
-  padding: 16px 40px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  border-radius: 50px;
-  transition: all 0.4s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.hero-btn:hover {
-  background: rgb(255, 55.2227848101, 35.8);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(255, 111, 97, 0.4);
-}
-
-@media (max-width: 1200px) {
-  .main-hero {
-    height: 70vh;
-    min-height: 500px;
-  }
-  .main-hero-container {
-    padding: 0 60px;
-  }
-  .main-hero-content {
-    padding: 40px;
-  }
-  .main-hero-content h1 {
-    font-size: 3rem;
-  }
-  .main-hero-content h1 span {
-    font-size: 2.2rem;
-  }
-}
-@media (max-width: 768px) {
-  .main-hero {
-    height: 60vh;
-    min-height: 400px;
-  }
-  .main-hero-container {
-    padding: 0 30px;
-    justify-content: center;
-  }
-  .main-hero-content {
-    width: 90%;
-    padding: 30px;
-    text-align: center;
-  }
-  .main-hero-content h1 {
-    font-size: 2.2rem;
-  }
-  .main-hero-content h1 span {
-    font-size: 1.8rem;
-  }
-  .main-hero-content p {
-    font-size: 1.2rem;
-  }
-  .hero-btn {
-    padding: 14px 30px;
-    font-size: 1rem;
-  }
-}
-@media (max-width: 480px) {
-  .main-hero {
-    min-height: 350px;
-  }
-  .main-hero-content {
-    padding: 25px;
-  }
-  .main-hero-content h1 {
-    font-size: 1.8rem;
-  }
-  .main-hero-content h1 span {
-    font-size: 1.4rem;
-  }
-  .main-hero-content p {
-    font-size: 1rem;
-  }
-}
 .custom-carousel {
   position: relative;
   width: 100%;
@@ -1125,7 +968,7 @@ img {
 }
 .custom-carousel-content {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 2%;
   transform: translateY(-50%);
   z-index: 20;
@@ -1179,7 +1022,6 @@ img {
   object-fit: cover;
   display: block;
 }
-
 @media (max-width: 768px) {
   .custom-carousel {
     height: 300px;
@@ -1200,18 +1042,6 @@ img {
   .custom-carousel-text {
     font-size: 16px;
   }
-}
-.custom-carousel-content {
-  position: absolute;
-  top: 45%;
-  left: 2%;
-  transform: translateY(-50%);
-  z-index: 20;
-  color: white;
-  text-shadow: 1px 1px 5px black;
-  max-width: 600px;
-  padding: 30px;
-  border-radius: 18px;
 }
 
 /*# sourceMappingURL=main.css.map */
