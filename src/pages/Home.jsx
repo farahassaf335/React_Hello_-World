@@ -9,10 +9,12 @@ import ProductSections from "../components/ProductSections";
 import MainCategories from "../components/MainCategories";
 import NewProducts from "../components/NewProducts";
 import Carousel from '../components/Carousel';
+import { HeaderProvider } from "../store/HeaderContext";
 
 const Home = () => (
   <div className="page-layout">
-    <Header />
+    <HeaderProvider>
+      <Header />
 
     <aside className="sidebar">
       <CategoryNavigation />
@@ -97,6 +99,8 @@ const Home = () => (
         </div>
       </div>
     </footer>
+        </HeaderProvider>
+
   </div>
 );
 
