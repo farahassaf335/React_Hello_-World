@@ -8,6 +8,7 @@ import BestSellers from "../components/BestSellers";
 import ProductSections from "../components/ProductSections";
 import MainCategories from "../components/MainCategories";
 import NewProducts from "../components/NewProducts";
+import Carousel from '../components/Carousel';
 import { HeaderProvider } from "../store/HeaderContext";
 
 const Home = () => (
@@ -22,19 +23,9 @@ const Home = () => (
 
     <main>
       <section className="hero-section container">
-        <div className="hero-left">
-          <h1 className="hero-title">
-            Trending Accessories<br /><span>MODERN SUNGLASSES</span>
-          </h1>
-          <p className="hero-sub">Starting at $15.00</p>
-          <button className="btn btn-primary">Shop Now</button>
-        </div>
-        <div className="hero-image">
-          <img src="/image/photo1.jpg" alt="Modern Sunglasses" />
-        </div>
+      
+          <Carousel />
      
-       
-
       </section>
       <ProductSections />
       <MainCategories />

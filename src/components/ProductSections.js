@@ -1,14 +1,16 @@
 import React, { useState } from "react";
+import "../styles/ProductSections.css";
 import { useProductsSections } from "../hooks/useProductsBySection";
 
+const sections = ["New Arrivals", "Trending", "Top Rated"];
+
 const ProductSections = () => {
-  const { topRated, newArrivals, trending, loading, error } =
-    useProductsSections();
+  const { topRated, newArrivals, trending, loading, error } = useProductsSections();
 
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   if (loading) return <p>Loading products...</p>;
-  if (error) return <p className="error-message">{error.message}</p>;
+  if (error) return <p className="error-message">{error.message || error}</p>;
 
   const productsBySection = {
     "New Arrivals": newArrivals,
@@ -20,10 +22,10 @@ const ProductSections = () => {
     <>
       <section className="product-sections container">
         <div className="section-container">
-          {Object.entries(productsBySection).map(([section, products]) => (
+          {sections.map((section) => (
             <div className="section-column" key={section}>
               <h3>{section}</h3>
-              {products.slice(0, 4).map((product) => (
+              {productsBySection[section]?.slice(0, 4).map((product) => (
                 <div
                   className="product-card"
                   key={product.id}
@@ -37,7 +39,11 @@ const ProductSections = () => {
                     />
                   </div>
                   <div className="text-container">
-                    <h4>{product.title}</h4>
+                    <h4 title={product.title}>
+                      {product.title.length > 30
+                        ? product.title.slice(0, 30) + "..."
+                        : product.title}
+                    </h4>
                     <p className="product-category">{product.category}</p>
                     <div className="price">
                       ${product.price.toFixed(2)}
@@ -55,10 +61,7 @@ const ProductSections = () => {
 
       {selectedProduct && (
         <div className="modal-overlay" onClick={() => setSelectedProduct(null)}>
-          <div
-            className="modal-content"
-            onClick={(e) => e.stopPropagation()} 
-          >
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button
               className="close-btn"
               onClick={() => setSelectedProduct(null)}
