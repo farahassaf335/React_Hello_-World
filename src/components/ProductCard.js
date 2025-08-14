@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React from "react";
 
 const ProductCard = ({ product }) => {
   const renderStars = (rating) => {
@@ -26,8 +25,11 @@ const ProductCard = ({ product }) => {
           className={styles.productImage}
         />
       </div>
+
       <div className={styles.productName}>{product.name}</div>
+
       <div className={styles.rating}>{renderStars(product.rating)}</div>
+
       <div className={styles.price}>
         <span className={styles.originalPrice}>
           ${product.originalPrice.toFixed(2)}

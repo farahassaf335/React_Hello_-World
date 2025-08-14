@@ -1,12 +1,42 @@
-import React from "react";
 
-import { GiDress } from "react-icons/gi";
-import { GiConverseShoe } from "react-icons/gi";
-import { GiDiamondRing } from "react-icons/gi";
-import { GiPerfumeBottle } from "react-icons/gi";
-import { GiShoppingBag } from "react-icons/gi";
-import { GiLipstick } from "react-icons/gi";
-import { GiSunglasses } from "react-icons/gi";
+import React, { createContext, useReducer, useContext } from "react";
+import {
+  GiDress,
+  GiConverseShoe,
+  GiDiamondRing,
+  GiPerfumeBottle,
+  GiShoppingBag,
+  GiLipstick,
+  GiSunglasses,
+} from "react-icons/gi";
+
+
+
+const CategoryContext = createContext();
+
+const initialState = {
+  selectedCategory: null,
+};
+
+const categoryReducer = (state, action) => {
+  switch (action.type) {
+    case "SELECT_CATEGORY":
+      return { ...state, selectedCategory: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const CategoryProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(categoryReducer, initialState);
+  return (
+    <CategoryContext.Provider value={{ state, dispatch }}>
+      {children}
+    </CategoryContext.Provider>
+  );
+};
+
+export const useCategory = () => useContext(CategoryContext);
 
 const categories = [
   "Clothes",
@@ -40,15 +70,35 @@ const getCategoryIcon = (categoryName) => {
 };
 
 const CategoryNavigation = () => {
+  const { state, dispatch } = useCategory();
+
+  const handleSelect = (cat) => {
+    dispatch({ type: "SELECT_CATEGORY", payload: cat });
+  };
+
   return (
-<div className="category-nav sidebar-section">
+    <div className="category-nav sidebar-section">
       <h3>Categories</h3>
       <ul>
         {categories.map((cat, index) => (
-          <li key={index} className="category-item">
+          <li
+            key={index}
+            className={`category-item ${state.selectedCategory === cat ? "selected" : ""}`}
+            onClick={() => handleSelect(cat)}
+          >
             <span className="icon">{getCategoryIcon(cat)}</span>
             <span>{cat}</span>
-            <span className="plus-sign">+</span>
+            <span
+              className="plus-sign"
+              style={{
+                opacity: 1,
+                visibility: "visible",
+                display: "inline",
+                color: "#ff9800",
+              }}
+            >
+              +
+            </span>
           </li>
         ))}
       </ul>
