@@ -15,9 +15,9 @@ const Carousel = () => {
       <div className="custom-carousel-content">
         <h1 className="custom-carousel-title">
           Trending Accessories<br />
-          <span className="custom-carousel-subtitle">MODERN SUNGLASSES</span>
+          <span className="custom-carousel-subtitle">MODERN<br></br> SUNGLASSES</span>
         </h1>
-        <p className="custom-carousel-text">Starting at $15.00</p>
+        <p className="custom-carousel-text">Starting at <strong>$15</strong>.00</p>
         <button className="custom-carousel-btn">Shop Now</button>
       </div>
 
