@@ -85,10 +85,10 @@ const Header = () => {
 
           <div className="right-options">
             <div className="option" onClick={() => dispatch({ type: "TOGGLE_CURRENCY" })}>
-              USD <span className="arrow">▼</span>
+              USD$ <span className="arrow">▼</span>
               {showCurrency && (
                 <div className="dropdown">
-                  <div>USD</div>
+                  <div>USD$</div>
                   <div>EUR</div>
                   <div>GBP</div>
                 </div>
@@ -96,10 +96,10 @@ const Header = () => {
             </div>
 
             <div className="option" onClick={() => dispatch({ type: "TOGGLE_LANGUAGE" })}>
-              EN <span className="arrow">▼</span>
+              ENGLISH <span className="arrow">▼</span>
               {showLanguage && (
                 <div className="dropdown">
-                  <div>EN</div>
+                  <div>ENGLISH</div>
                   <div>AR</div>
                   <div>FR</div>
                 </div>

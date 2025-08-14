@@ -45,9 +45,9 @@ const CategoryNavigation = () => {
       <h3>Categories</h3>
       <ul>
         {categories.map((cat, index) => (
-          <li key={index} className="category-item">
+          <li key={index} className="category-item1">
             <span className="icon">{getCategoryIcon(cat)}</span>
-            <span>{cat}</span>
+            <span className="titleCat">{cat}</span>
             <span className="plus-sign">+</span>
           </li>
         ))}

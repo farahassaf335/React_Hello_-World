@@ -2,13 +2,18 @@
 @use '../abstracts/mixins' as mixins;
 
 .product-sections {
-  font-family: vars.$font-family;
 
   .section-container {
+    margin-top:-10%;
+    margin-left: -8%;
     display: flex;
     gap: 8px; 
     flex-wrap: wrap;
   }
+.titleToSec{
+  border-bottom: 0.5px solid vars.$bg-divider; 
+  padding-bottom: 5px;        
+  margin-bottom: 15px;      }
 
   .section-column {
     flex: 1 1 320px;
@@ -20,14 +25,14 @@
     flex-direction: row; 
     align-items: center; 
     gap: 8px; 
-    padding: 8px; 
+    padding: 18px; 
     border-radius: 12px;
     background-color: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     margin-bottom: 8px; 
     cursor: pointer;
     transition: box-shadow 0.2s ease;
-    max-width: 100%; 
+    width: 100%; 
 
     &:hover {
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -79,7 +84,7 @@
         font-size: 0.9rem;
         font-weight: bold;
         color: #e94560;
-
+margin-left: -50%;
         .old-price {
           margin-left: 6px;
           font-size: 0.8rem;
@@ -150,11 +155,11 @@
       font-weight: 600;
       color: #e94560;
       font-size: 0.9rem;
+       padding-left: 16px;
 
       .old-price {
         color: #aaa;
         font-size: 0.8rem;
-        margin-left: 6px;
         text-decoration: line-through;
       }
     }

@@ -1,20 +1,21 @@
-
-// src/scss/components/_category-navigation.scss
 @use '../abstracts/mixins' as mixins;
 @use '../abstracts/variables' as vars; 
 
 
 .category-nav {
+  
   background: vars.$white-color;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  padding: 18px 0;
-  width: 200px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 10px 0px 10px 20px;
+  width: 180%;
   margin: 0 0 24px 24px;
+  text-transform: uppercase;
+  margin-top: -60%;
 }
 
 .category-nav h3 {
-  font-size: 16px;
+  font-size: 18px;
   color: vars.$black-color;
   font-weight: 600;
   margin: 0 0 18px 24px;
@@ -25,38 +26,43 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  
 }
 
-.category-item {
+.category-item1 {
  @include mixins.flex(space-between, center);
 
   font-size: 14px;
-  color: vars.$text-color;
   padding: 8px 24px;
   border-radius: 8px;
   margin: 0 8px 6px 8px;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
-
   .icon {
     margin-right: 10px;
     font-size: 16px;
+    
+    
+  }
+  .titleCat{
+    margin-right: 50%;
+  
   }
 
   .plus-sign {
+  
     color: vars.$br-color;
     font-size: 18px;
-    margin-left: 12px;
     transition: color 0.2s;
   }
 
  &:hover {
   @include mixins.hover-color(vars.$diff-color);
 
-    color: vars.$white-color;
-
+    color: vars.$primary-color;
+background-color:vars.$bg-color;
     .plus-sign {
-      color: vars.$white-color;
+      color: vars.$primary-color;
     }
   }
 }

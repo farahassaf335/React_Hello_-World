@@ -2,7 +2,7 @@
 @use '../abstracts/mixins' as mixins;
 
 .main-categories-wrapper {
-  margin: 20px 0;
+  margin: 20px 30px;
   padding: 10px;
 }
 
@@ -16,34 +16,35 @@
   background-color: vars.$category-bg-color;
   padding: 8px 12px;
   border-radius: 8px;
-  min-width: 160px;
-  max-width: 200px;
+  width: 24.2%;
   box-shadow: 0 1px 4px rgba(0,0,0,0.05);
   transition: transform 0.3s ease;
+  
 }
 
 .category-item:hover {
   transform: translateY(-3px);
+  
 }
 
 .category-item img {
-  width: 36px;
-  height: 36px;
+  height: 60px;
   border-radius: 5px;
-  margin-right: 10px;
-  object-fit: cover;
+  
 }
 
 .category-info {
   display: flex;
   flex-direction: column;
+ text-align: left;
+ margin-left: 2%;
 }
 
 .category-title {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
   color: vars.$category-title-color;
-  margin-bottom: 2px;
+
 }
 
 .category-show-all {

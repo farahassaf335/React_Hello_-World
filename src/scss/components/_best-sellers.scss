@@ -4,15 +4,16 @@
 .best-sellers {
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   font-family: 'Segoe UI', sans-serif;
   margin-top: 30px;
+  width: 182%;
+  margin-left: 19px;
 }
 
 .best-sellers h3 {
   font-size: 18px;
   color: vars.$black-color;
-  margin-bottom: 15px;
   font-weight: 600;
   border-bottom: 1px solid vars.$border-color;
   padding-bottom: 10px;
@@ -29,29 +30,35 @@
   margin-bottom: 15px;
 }
 
-.best-seller-item img {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 6px;
+.best-seller-item img {  
+height: 80px;
+width:20%;
+object-fit: cover;
+border-radius: 6px;
 }
 
 .best-seller-item .info {
   display: flex;
   flex-direction: column;
+  gap: 2px; 
+
 }
+
 
 .best-seller-item .name {
   font-size: 14px;
   color: vars.$text-color;
   margin: 0;
+
+}
+.best-seller-item .info p {
+  margin: 0;
+  padding: 0;
 }
 
 .best-seller-item .price {
   font-size: 13px;
-  color: vars.$diff-color;
-  font-weight: bold;
-  margin-top: 4px;
+
 }
 
 

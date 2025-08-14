@@ -334,3 +334,16 @@ img {
   font-size: 0.98rem;
   color: vars.$br-color;
 }
+
+.page-container {
+  display: flex;
+  align-items: flex-start; }
+  
+
+.categories {
+  margin-right: 200px; }
+  
+  .categories {
+  display: flex;
+  flex-direction: column;
+}

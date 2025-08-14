@@ -1,28 +1,12 @@
-import React, { useReducer } from "react";
+import React, { useState } from "react";
 import { useProductsSections } from "../hooks/useProductsBySection";
 
 const sections = ["New Arrivals", "Trending", "Top Rated"];
 
-const productReducer = (state, action) => {
-  switch (action.type) {
-    case "SELECT_PRODUCT":
-      return { ...state, selectedProduct: action.payload };
-    case "CLEAR_PRODUCT":
-      return { ...state, selectedProduct: null };
-    default:
-      return state;
-  }
-};
-
-const initialState = {
-  selectedProduct: null,
-};
-
 const ProductSections = () => {
   const { topRated, newArrivals, trending, loading, error } = useProductsSections();
 
-  
-  const [state, dispatch] = useReducer(productReducer, initialState);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   if (loading) return <p>Loading products...</p>;
   if (error) return <p className="error-message">{error.message || error}</p>;
@@ -39,14 +23,12 @@ const ProductSections = () => {
         <div className="section-container">
           {sections.map((section) => (
             <div className="section-column" key={section}>
-              <h3>{section}</h3>
+              <h2 className="titleToSec">{section}</h2>
               {productsBySection[section]?.slice(0, 4).map((product) => (
                 <div
                   className="product-card"
                   key={product.id}
-                  onClick={() =>
-                    dispatch({ type: "SELECT_PRODUCT", payload: product })
-                  }
+                  onClick={() => setSelectedProduct(product)}
                 >
                   <div className="image-container">
                     <img
@@ -76,32 +58,26 @@ const ProductSections = () => {
         </div>
       </section>
 
-      {state.selectedProduct && (
-        <div
-          className="modal-overlay"
-          onClick={() => dispatch({ type: "CLEAR_PRODUCT" })}
-        >
-          <div
-            className="modal-content"
-            onClick={(e) => e.stopPropagation()}
-          >
+      {selectedProduct && (
+        <div className="modal-overlay" onClick={() => setSelectedProduct(null)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button
               className="close-btn"
-              onClick={() => dispatch({ type: "CLEAR_PRODUCT" })}
+              onClick={() => setSelectedProduct(null)}
             >
               ×
             </button>
-            <h2>{state.selectedProduct.title}</h2>
+            <h2>{selectedProduct.title}</h2>
             <img
-              src={state.selectedProduct.thumbnail}
-              alt={state.selectedProduct.title}
+              src={selectedProduct.thumbnail}
+              alt={selectedProduct.title}
               className="modal-image"
             />
-            <p><strong>Category:</strong> {state.selectedProduct.category}</p>
-            <p><strong>Description:</strong> {state.selectedProduct.description}</p>
-            <p><strong>Price:</strong> ${state.selectedProduct.price.toFixed(2)}</p>
-            <p><strong>Rating:</strong> {state.selectedProduct.rating}</p>
-            <p><strong>Discount:</strong> {state.selectedProduct.discountPercentage}%</p>
+            <p><strong>Category:</strong> {selectedProduct.category}</p>
+            <p><strong>Description:</strong> {selectedProduct.description}</p>
+            <p><strong>Price:</strong> ${selectedProduct.price.toFixed(2)}</p>
+            <p><strong>Rating:</strong> {selectedProduct.rating}</p>
+            <p><strong>Discount:</strong> {selectedProduct.discountPercentage}%</p>
           </div>
         </div>
       )}

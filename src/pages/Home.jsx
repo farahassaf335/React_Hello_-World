@@ -10,61 +10,40 @@ import MainCategories from "../components/MainCategories";
 import NewProducts from "../components/NewProducts";
 import Carousel from '../components/Carousel';
 import { HeaderProvider } from "../store/HeaderContext";
+import ServicesAndBlogSection from '../components/ServicesAndBlogSection';
 
 const Home = () => (
-  <div className="page-layout">
+  <div className="">
     <HeaderProvider>
       <Header />
-
-    <aside className="sidebar">
-      <CategoryNavigation />
-      <BestSellers />
-    </aside>
-
     <main>
-      <section className="hero-section container">
-      
+      <section className="container">
           <Carousel />
-     
       </section>
-      <ProductSections />
       <MainCategories />
 
-      <section className="categories-section container">
-        <div className="main-content">
-          <div className="product-tabs">
-            <button className="tab active">New Arrivals</button>
-            <button className="tab">Trending</button>
-            <button className="tab">Top Rated</button>
-          </div>
-          <div className="product-grid">
-            <div className="product-card">
-              <img src="/image/photo2.jpg" alt="Product" />
-              <div className="product-info">
-                <h4>Product Name</h4>
-                <div className="price">
-                  <span className="current-price">$49.00</span>
-                  <span className="old-price">$59.00</span>
-                </div>
-                <div className="rating">★★★★★ 4.8</div>
-              </div>
-              <div className="quick-actions">
-                <button className="icon-btn">♡</button>
-                <button className="icon-btn">🛒</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <div className="deal-section-wrapper container">
-        <h2 className="deal-title">Deal Of The Day</h2>
-        <DealOfTheDay />
-      </div>
+<div className="page-layout ">
+  <aside className="categories">
 
-      <div className="container">
+        <CategoryNavigation />            
+<BestSellers /> 
+
+      </aside>
+  <main className="main-content">
+    <ProductSections />
+
+    <div className="deal-section-wrapper container">
+      <h2 className="deal-title">Deal Of The Day</h2>
+      <DealOfTheDay />
+    </div>
+    
         <NewProducts />
-      </div>
+ 
+  <ServicesAndBlogSection />
+ </main>
+</div>
+
     </main>
 
     <footer className="main-footer">

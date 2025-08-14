@@ -8,21 +8,12 @@
 }
 
 aside {
-    padding-top: 80px;
-
-  grid-area: sidebar;
+   
   background-color: vars.$bg-light;
-  border-radius: 12px;
-  padding: 18px 14px;
-  margin-top: 18px;
-  margin-bottom: 18px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  width: fit-content;
-  min-width: unset;
+
   max-width: 220px;
-  height: fit-content;
-  align-self: flex-start;
-    margin-top: 100px;
+
+    margin-top: 120px;
 
 }
 main {
@@ -31,4 +22,26 @@ main {
 }
 footer {
  @include mixins.footer-area;
+}
+
+
+
+
+
+
+
+
+.page-layout {
+  display: grid;
+  grid-template-columns: 400px 1fr;   
+  gap: 20px;
+
+}
+
+
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
