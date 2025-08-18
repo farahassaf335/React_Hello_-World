@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useProductsSections } from "../hooks/useProductsBySection";
+import ProductModal from "./ProductModal";
 
 const ProductSections = () => {
   const { topRated, newArrivals, trending, loading, error } =
@@ -14,6 +15,10 @@ const ProductSections = () => {
     "New Arrivals": newArrivals,
     "Trending": trending,
     "Top Rated": topRated,
+  };
+
+  const calculateOriginalPrice = (price, discountPercentage) => {
+    return (price / (1 - discountPercentage / 100)).toFixed(2);
   };
 
   return (
@@ -41,9 +46,12 @@ const ProductSections = () => {
                     <p className="product-category">{product.category}</p>
                     <div className="price">
                       ${product.price.toFixed(2)}
-                      <span className="old-price">
-                        ${(product.price * 1.2).toFixed(2)}
-                      </span>
+                      {product.discountPercentage > 0 && (
+                        <span className="old-price">
+                          $
+                          {calculateOriginalPrice(product.price, product.discountPercentage)}
+                        </span>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -53,32 +61,7 @@ const ProductSections = () => {
         </div>
       </section>
 
-      {selectedProduct && (
-        <div className="modal-overlay" onClick={() => setSelectedProduct(null)}>
-          <div
-            className="modal-content"
-            onClick={(e) => e.stopPropagation()} 
-          >
-            <button
-              className="close-btn"
-              onClick={() => setSelectedProduct(null)}
-            >
-              ×
-            </button>
-            <h2>{selectedProduct.title}</h2>
-            <img
-              src={selectedProduct.thumbnail}
-              alt={selectedProduct.title}
-              className="modal-image"
-            />
-            <p><strong>Category:</strong> {selectedProduct.category}</p>
-            <p><strong>Description:</strong> {selectedProduct.description}</p>
-            <p><strong>Price:</strong> ${selectedProduct.price.toFixed(2)}</p>
-            <p><strong>Rating:</strong> {selectedProduct.rating}</p>
-            <p><strong>Discount:</strong> {selectedProduct.discountPercentage}%</p>
-          </div>
-        </div>
-      )}
+      <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
     </>
   );
 };

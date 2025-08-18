@@ -6,7 +6,17 @@
   align-items: $align;
   gap: $gap;
 }
-
+@mixin btn-base2 {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  border: 1px solid;
+  transition: all 0.3s ease;
+  @include rounded(4px);
+}
 @mixin flex-center {
   display: flex;
   justify-content: center;

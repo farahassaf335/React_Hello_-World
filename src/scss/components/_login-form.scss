@@ -1,0 +1,112 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mixins;
+@use 'sass:color';
+
+.login-page-container {
+  @include mixins.flex-center;
+  min-height: 100vh;
+  background-color: vars.$bg-light;
+}
+
+.login-form-container {
+  background: vars.$white-color;
+  padding: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  @include mixins.rounded(12px);
+
+  h2 {
+    margin-bottom: 24px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: vars.$black-color;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: vars.$text-color;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid vars.$border-color;
+      font-size: 1rem;
+      box-sizing: border-box;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      @include mixins.rounded(4px);
+
+      &:focus {
+        border-color: vars.$diff-color;
+        outline: none;
+        box-shadow: 0 0 0 3px color.adjust(vars.$diff-color, $alpha: -0.75);
+      }
+    }
+  }
+
+  .forgot-password-link {
+    display: block;
+    text-align: right;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: vars.$text-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+      color: vars.$diff-color;
+    }
+  }
+
+  .error {
+    color: vars.$red-color;
+    font-size: 0.875rem;
+    margin-top: 5px;
+    text-align: left;
+  }
+
+  .form-error {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .btn-primary, .btn-secondary {
+    @include mixins.btn-base2;
+  }
+
+  .btn-primary {
+    background-color: vars.$black-color;
+    color: vars.$white-color;
+    border-color: vars.$black-color;
+    margin-bottom: 15px;
+
+    &:disabled {
+      background-color: vars.$gray-color;
+      border-color: vars.$gray-color;
+      cursor: not-allowed;
+    }
+
+    &:not(:disabled):hover {
+      background-color: color.adjust(vars.$black-color, $lightness: 15%);
+      border-color: color.adjust(vars.$black-color, $lightness: 15%);
+    }
+  }
+
+  .btn-secondary {
+    background-color: vars.$white-color;
+    color: vars.$black-color;
+    border-color: vars.$black-color;
+
+    &:hover {
+      background-color: vars.$bg-light;
+    }
+  }
+}

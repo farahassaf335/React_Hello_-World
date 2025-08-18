@@ -2,29 +2,36 @@ import React from "react";
 import { useHeader } from "../store/HeaderContext";
 import { useQuery } from "@tanstack/react-query";
 import { SearchService } from "../services/searchService";
+import { useSelector } from "react-redux";
 import {
-  faUser, faHeart, faShoppingBag, faSearch
+  faUser,
+  faHeart,
+  faShoppingBag,
+  faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import {
-  faFacebookF, faTwitter, faInstagram, faLinkedinIn
+  faFacebookF,
+  faTwitter,
+  faInstagram,
+  faLinkedinIn,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Header = () => {
   const { state, dispatch } = useHeader();
-  console.log("Header state:", state);
-
   const { searchQuery, showCurrency, showLanguage, showResults } = state;
+
+  const cartItems = useSelector((state) => state.cart.items);
 
   const {
     data,
     error,
     refetch,
-    isFetching
+    isFetching,
   } = useQuery({
     queryKey: ["products", searchQuery],
     queryFn: () => SearchService.searchProduct(searchQuery),
-    enabled: false, 
+    enabled: false,
   });
 
   const handleSearch = () => {
@@ -43,11 +50,15 @@ const Header = () => {
       <header>
         {showResults && (
           <div className="search-overlay">
-            <button className="close-btn" onClick={handleCloseResults}>×</button>
+            <button className="close-btn" onClick={handleCloseResults}>
+              ×
+            </button>
             <div className="search-results">
               {isFetching && <p>Loading...</p>}
               {error && <p>{error.message}</p>}
-              {!isFetching && data?.data?.products?.length === 0 && <p>No results found.</p>}
+              {!isFetching && data?.data?.products?.length === 0 && (
+                <p>No results found.</p>
+              )}
               {!isFetching &&
                 data?.data?.products.map((product) => (
                   <div key={product.id} className="product-item">
@@ -55,7 +66,9 @@ const Header = () => {
                     <div className="product-info">
                       <h3>{product.title}</h3>
                       <p>{product.description}</p>
-                      <p><strong>${product.price}</strong> | ⭐ {product.rating}</p>
+                      <p>
+                        <strong>${product.price}</strong> | ⭐ {product.rating}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -63,6 +76,7 @@ const Header = () => {
           </div>
         )}
 
+        {/* TOP BAR */}
         <div className="header-section top-bar">
           <div className="left-icons">
             <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
@@ -79,9 +93,7 @@ const Header = () => {
             </a>
           </div>
 
-          <div className="center-title">
-            FREE SHIPPING WEEK ORDER - 55$
-          </div>
+          <div className="center-title">FREE SHIPPING WEEK ORDER - 55$</div>
 
           <div className="right-options">
             <div className="option" onClick={() => dispatch({ type: "TOGGLE_CURRENCY" })}>
@@ -108,8 +120,10 @@ const Header = () => {
           </div>
         </div>
 
+        {/* MIDDLE BAR */}
         <div className="header-section middle-bar">
           <h2>Anon</h2>
+
           <div className="center-search">
             <input
               type="text"
@@ -128,12 +142,21 @@ const Header = () => {
           </div>
 
           <div className="right-icons">
-            <a className="icon-with-badge" href="/user"><FontAwesomeIcon icon={faUser} /></a>
-            <a className="icon-with-badge" href="/likes"><FontAwesomeIcon icon={faHeart} /><span className="badge">0</span></a>
-            <a className="icon-with-badge" href="/cart"><FontAwesomeIcon icon={faShoppingBag} /><span className="badge">0</span></a>
+            <a className="icon-with-badge" href="/user">
+              <FontAwesomeIcon icon={faUser} />
+            </a>
+            <a className="icon-with-badge" href="/likes">
+              <FontAwesomeIcon icon={faHeart} />
+              <span className="badge">0</span>
+            </a>
+            <a className="icon-with-badge" href="/Cart">
+              <FontAwesomeIcon icon={faShoppingBag} />
+              <span className="badge">{cartItems.length}</span>
+            </a>
           </div>
         </div>
 
+        {/* BOTTOM BAR */}
         <div className="header-section bottom-bar">
           <nav className="nav-links">
             <a href="/">Home</a>
