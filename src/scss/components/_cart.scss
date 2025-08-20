@@ -1,0 +1,162 @@
+@use '../abstracts/variables' as vars;
+
+
+
+
+
+
+
+.cart-wrapper {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+
+  .cart-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .cart-empty {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+  }
+
+  .cart-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .cart-item {
+    display: flex;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: vars.$border-radius;
+    overflow: hidden;
+
+    .item-img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .item-body {
+      flex: 1;
+      padding: 10px;
+
+      .item-title {
+        margin: 0 0 10px 0;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .item-desc {
+        margin: 0 0 5px 0;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .item-price {
+        margin: 0 0 5px 0;
+        color: vars.$primary-color;
+        font-weight: 500;
+      }
+
+      .item-quantity-label {
+        margin: 0 0 5px 0;
+        font-weight: 500;
+      }
+
+      .quantity-control {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 5px;
+
+        button {
+          padding: 5px 10px;
+          cursor: pointer;
+          border: none;
+          border-radius: 5px;
+          background: vars.$primary-color;
+          color: white;
+
+          &:hover {
+            opacity: 0.9;
+          }
+        }
+      }
+
+      .item-subtotal {
+        margin: 0 0 5px 0;
+        font-size: 14px;
+        strong {
+          color: vars.$primary-color;
+           
+        }
+      }
+      
+      .item-subtotal2 {
+        
+        strong {
+           text-decoration: line-through; 
+        }
+      }
+
+      .remove-btn {
+        padding: 5px 10px;
+        background-color:vars.$primary-color;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+    }
+  }
+
+  .cart-summary {
+    margin-top: 20px;
+
+    p {
+      margin: 5px 0;
+      font-weight: 500;
+    }
+
+    .action-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+
+      .clear-cart-btn {
+        padding: 10px 20px;
+        border-radius: 5px;
+        background-color: vars.$primary-color;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+
+      .back-home-btn {
+        padding: 10px 20px;
+        border-radius: 5px;
+        background-color:vars.$primary-color;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+    }
+  }
+}

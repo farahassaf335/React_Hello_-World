@@ -1,14 +1,10 @@
-import React from 'react';
-import { useState } from 'react';
-import {useDispatch} from 'react-redux';
-import {addToCart} from '../store/cartslice';
+import React, { useState, useEffect } from 'react';
 import { useQuery } from "@tanstack/react-query";
 import { fetchDealOfTheDay } from "../services/productService";
-import { useEffect } from 'react';
-
+import AddToCartButton from './AddToCartButton';
 
 const DealOfTheDay = () => {
-  const dispatch = useDispatch();
+ 
   const [timeLeft, setTimeLeft] = useState({
     days: 1,
     hours: 23,
@@ -17,39 +13,38 @@ const DealOfTheDay = () => {
   });
 
   useEffect(() => {
-  const timer = setInterval(() => {
-    setTimeLeft(prev => {
-      let { days, hours, minutes, seconds } = prev;
-      if (seconds > 0) seconds--;
-      else if (minutes > 0) {
-        minutes--;
-        seconds = 59;
-      } else if (hours > 0) {
-        hours--;
-        minutes = 59;
-        seconds = 59;
-      } else if (days > 0) {
-        days--;
-        hours = 23;
-        minutes = 59;
-        seconds = 59;
-      } else {
-        clearInterval(timer); 
-      }
-      return { days, hours, minutes, seconds };
-    });
-  }, 1000);
+    const timer = setInterval(() => {
+      setTimeLeft(prev => {
+        let { days, hours, minutes, seconds } = prev;
+        if (seconds > 0) seconds--;
+        else if (minutes > 0) {
+          minutes--;
+          seconds = 59;
+        } else if (hours > 0) {
+          hours--;
+          minutes = 59;
+          seconds = 59;
+        } else if (days > 0) {
+          days--;
+          hours = 23;
+          minutes = 59;
+          seconds = 59;
+        } else {
+          clearInterval(timer);
+        }
+        return { days, hours, minutes, seconds };
+      });
+    }, 1000);
 
-  return () => clearInterval(timer);
-}, []);
+    return () => clearInterval(timer);
+  }, []);
+
   const { data: product, isLoading, error } = useQuery({
     queryKey: ["dealOfTheDay"],
     queryFn: fetchDealOfTheDay,
   });
 
-  const handleAddToCart = () => {
-    dispatch(addToCart(product));
-  };
+
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Something went wrong...</div>;
@@ -69,7 +64,8 @@ const DealOfTheDay = () => {
           <span className="deal-price">${product.price}</span>
           <span className="deal-old-price">${Math.round(product.price * 1.3)}</span>
         </div>
-        <button className="deal-add-to-cart" onClick={handleAddToCart}>ADD TO CART</button>
+              <AddToCartButton product={product} />
+
         <div className="deal-meta">
           <span>ALREADY SOLD: <b>20</b></span>
           <span>AVAILABLE: <b>40</b></span>

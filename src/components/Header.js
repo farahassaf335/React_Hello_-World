@@ -1,5 +1,8 @@
 import React from "react";
 import { useHeader } from "../store/HeaderContext";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import useCartStore from "../store/useCartStore";
 import { useQuery } from "@tanstack/react-query";
 import { SearchService } from "../services/searchService";
 import {
@@ -9,11 +12,54 @@ import {
   faFacebookF, faTwitter, faInstagram, faLinkedinIn
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { logout } from "../store/authSlice";
+import { useNavigate } from "react-router-dom";
+import CartBadge from './CartBadge';
 const Header = () => {
   const { state, dispatch } = useHeader();
-  console.log("Header state:", state);
+  const reduxDispatch = useDispatch();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState("");
+  const dispatch1 = useDispatch();
+  const navigate = useNavigate();
+  const [user, setUser] = useState(() => JSON.parse(localStorage.getItem("user")));
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (storedUser) {
+      setIsLoggedIn(true);
+      setUsername(storedUser.username); 
+    }
+  }, []);
 
+
+  const handleAuth = () => {
+    if (isLoggedIn) {
+      reduxDispatch(logout()); 
+      localStorage.removeItem("user"); 
+      setIsLoggedIn(false);
+      setUsername("");
+      navigate("/"); 
+    } else {
+    
+      navigate("/login");
+    }
+  };
+
+
+ const storedUser = JSON.parse(localStorage.getItem("user"));
+  const userName = storedUser?.username;
+  const useCart = useCartStore(userName);
+
+  const cart = useCart((state) => state.cart);
+
+
+  const handleCartClick = () => {
+    if (isLoggedIn) {
+      navigate("/cart");
+    } else {
+      alert("يرجى تسجيل الدخول أولاً");
+    }
+  };
   const { searchQuery, showCurrency, showLanguage, showResults } = state;
 
   const {
@@ -80,7 +126,8 @@ const Header = () => {
           </div>
 
           <div className="center-title">
-            FREE SHIPPING WEEK ORDER - 55$
+               {isLoggedIn && <span>HI , {username}</span>}
+           &nbsp;&nbsp;&nbsp; {" "}FREE SHIPPING WEEK ORDER - 55$
           </div>
 
           <div className="right-options">
@@ -128,10 +175,30 @@ const Header = () => {
           </div>
 
           <div className="right-icons">
-            <a className="icon-with-badge" href="/user"><FontAwesomeIcon icon={faUser} /></a>
+       <button 
+  onClick={handleAuth} 
+  className={`auth-btn ${isLoggedIn ? "logout" : ""}`}
+>
+  {isLoggedIn ? "Logout" : "Login"}
+</button>
+
+<a className="icon-with-badge" href="/user"><FontAwesomeIcon icon={faUser} /></a>
             <a className="icon-with-badge" href="/likes"><FontAwesomeIcon icon={faHeart} /><span className="badge">0</span></a>
-            <a className="icon-with-badge" href="/cart"><FontAwesomeIcon icon={faShoppingBag} /><span className="badge">0</span></a>
-          </div>
+<a
+          className="icon-with-badge"
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            handleCartClick();
+          }}
+        >
+          <FontAwesomeIcon icon={faShoppingBag} />
+          <span className="badge">    <CartBadge userKey={`cart_user_${userName}`} />
+
+</span>
+        </a>
+                   
+        </div>
         </div>
 
         <div className="header-section bottom-bar">

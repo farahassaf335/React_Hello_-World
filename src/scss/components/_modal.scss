@@ -1,189 +1,45 @@
-//styles will be added here later
-.services-blog-container {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 2rem;
-  max-width: 1200px;
-  margin: auto;
-  padding: 2rem;
-  background-color: #fdfdfd;
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mixins;
 
-  .main-content {
-    background: #fff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: vars.$modal-bg;
+  @include mixins.flex-center;
+  z-index: 9999;
+
+  .modal-content {
+    background: vars.$white-color;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    position: relative;
+    text-align: left;
 
     h2 {
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
+      margin-top: 0;
     }
 
-    p {
-      font-size: 0.9rem;
-      color: #666;
-      margin-bottom: 1rem;
-    }
-
-    .product-placeholder {
-      height: 180px;
-      border: 2px dashed #ddd;
+    .modal-image {
+      display: block;
+      margin: 0 auto 15px auto;
+      max-width: 80%;
+      max-height: 250px;
+      object-fit: contain;
       border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #bbb;
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-    }
-  }
-
-  .sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-
-    .services-card {
-      background: #fff;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-
-      .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 1rem;
-
-        h3 {
-          font-size: 1rem;
-          font-weight: bold;
-        }
-
-        span {
-          font-size: 0.75rem;
-          color: #999;
-        }
-      }
-
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-
-        li {
-          display: flex;
-          align-items: flex-start;
-          gap: 0.75rem;
-          margin-bottom: 0.75rem;
-
-          .icon-container {
-            background: #ffe6ec;
-            color: #e85c84;
-            padding: 0.4rem;
-            border-radius: 6px;
-            font-size: 1.1rem;
-          }
-
-          .title {
-            font-size: 0.9rem;
-            font-weight: 500;
-          }
-
-          .subtitle {
-            font-size: 0.75rem;
-            color: #888;
-          }
-        }
-      }
     }
 
-    .promo-box {
-      background: linear-gradient(to bottom right, #fff0f5, #ffe6ec);
-      padding: 1rem;
-      border-radius: 8px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      .promo-text {
-        h4 {
-          font-size: 0.9rem;
-          font-weight: bold;
-        }
-
-        p {
-          font-size: 0.75rem;
-          color: #555;
-        }
-      }
-
-      .promo-img {
-        background: white;
-        width: 80px;
-        height: 80px;
-        border-radius: 6px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #e85c84;
-        font-weight: bold;
-      }
-    }
-
-    .posts-card {
-      background: #fff;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-
-      h4 {
-        font-size: 0.9rem;
-        font-weight: bold;
-        margin-bottom: 0.75rem;
-      }
-
-      article {
-        display: flex;
-        gap: 0.75rem;
-        align-items: center;
-        margin-bottom: 0.75rem;
-
-        img {
-          width: 80px;
-          height: 55px;
-          border-radius: 6px;
-          object-fit: cover;
-        }
-
-        h5 {
-          font-size: 0.85rem;
-          margin: 0;
-        }
-
-        p {
-          font-size: 0.7rem;
-          color: #999;
-        }
-      }
-    }
-
-    .sidebar-links {
-      font-size: 0.75rem;
-      color: #777;
-
-      a {
-        display: block;
-        color: #e85c84;
-        text-decoration: none;
-        margin-bottom: 0.25rem;
-
-        &:hover {
-          text-decoration: underline;
-        }
-      }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: transparent;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
     }
   }
 }
-
-

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { useProductsSections } from "../hooks/useProductsBySection";
-
-const sections = ["New Arrivals", "Trending", "Top Rated"];
+import ProductModal from "./ProductModal";
 
 const ProductSections = () => {
-  const { topRated, newArrivals, trending, loading, error } = useProductsSections();
+  const { topRated, newArrivals, trending, loading, error } =
+    useProductsSections();
 
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   if (loading) return <p>Loading products...</p>;
-  if (error) return <p className="error-message">{error.message || error}</p>;
+  if (error) return <p className="error-message">{error.message}</p>;
 
   const productsBySection = {
     "New Arrivals": newArrivals,
@@ -17,14 +17,18 @@ const ProductSections = () => {
     "Top Rated": topRated,
   };
 
+  const calculateOriginalPrice = (price, discountPercentage) => {
+    return (price / (1 - discountPercentage / 100)).toFixed(2);
+  };
+
   return (
     <>
       <section className="product-sections container">
         <div className="section-container">
-          {sections.map((section) => (
+          {Object.entries(productsBySection).map(([section, products]) => (
             <div className="section-column" key={section}>
-              <h2 className="titleToSec">{section}</h2>
-              {productsBySection[section]?.slice(0, 4).map((product) => (
+              <h3>{section}</h3>
+              {products.slice(0, 4).map((product) => (
                 <div
                   className="product-card"
                   key={product.id}
@@ -38,17 +42,18 @@ const ProductSections = () => {
                     />
                   </div>
                   <div className="text-container">
-                    <h4 title={product.title}>
-                      {product.title.length > 30
-                        ? product.title.slice(0, 30) + "..."
-                        : product.title}
-                    </h4>
+                    <h4>{product.title}</h4>
                     <p className="product-category">{product.category}</p>
                     <div className="price">
                       ${product.price.toFixed(2)}
-                      <span className="old-price">
-                        ${(product.price * 1.2).toFixed(2)}
-                      </span>
+                      {product.discountPercentage > 0 && (
+                        <span className="old-price">
+                          $
+                          {calculateOriginalPrice(product.price, product.discountPercentage)}
+                        </span>
+                        
+                      )}
+                      
                     </div>
                   </div>
                 </div>
@@ -58,29 +63,7 @@ const ProductSections = () => {
         </div>
       </section>
 
-      {selectedProduct && (
-        <div className="modal-overlay" onClick={() => setSelectedProduct(null)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button
-              className="close-btn"
-              onClick={() => setSelectedProduct(null)}
-            >
-              ×
-            </button>
-            <h2>{selectedProduct.title}</h2>
-            <img
-              src={selectedProduct.thumbnail}
-              alt={selectedProduct.title}
-              className="modal-image"
-            />
-            <p><strong>Category:</strong> {selectedProduct.category}</p>
-            <p><strong>Description:</strong> {selectedProduct.description}</p>
-            <p><strong>Price:</strong> ${selectedProduct.price.toFixed(2)}</p>
-            <p><strong>Rating:</strong> {selectedProduct.rating}</p>
-            <p><strong>Discount:</strong> {selectedProduct.discountPercentage}%</p>
-          </div>
-        </div>
-      )}
+      <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
     </>
   );
 };
