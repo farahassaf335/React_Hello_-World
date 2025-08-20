@@ -498,7 +498,7 @@ footer {
   transition: all 0.3s ease-in-out;
 }
 .auth-btn:hover {
-  background-color: rgb(33.1380753138, 125.1882845188, 186.8619246862);
+  background-color: #2e86c1;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
