@@ -10,7 +10,6 @@ function CartPage() {
   const useCart = useCartStore(userName);
   const items = useCart((state) => state.cart);
   const clearCart = useCart((state) => state.clearCart);
-  const updateItemQuantity = useCart((state) => state.updateItemQuantity);
   const removeItem = useCart((state) => state.removeItem);
 
   const mergedItems = items.reduce((acc, item) => {

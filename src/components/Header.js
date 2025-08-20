@@ -46,7 +46,6 @@ const Header = () => {
 
  const storedUser = JSON.parse(localStorage.getItem("user"));
   const userName = storedUser?.username;
-  const useCart = useCartStore(userName);
 
 
 
