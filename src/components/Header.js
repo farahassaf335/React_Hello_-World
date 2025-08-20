@@ -2,7 +2,6 @@ import React from "react";
 import { useHeader } from "../store/HeaderContext";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import useCartStore from "../store/useCartStore";
 import { useQuery } from "@tanstack/react-query";
 import { SearchService } from "../services/searchService";
 import {
