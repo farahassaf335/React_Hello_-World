@@ -20,9 +20,7 @@ const Header = () => {
   const reduxDispatch = useDispatch();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
-  const dispatch1 = useDispatch();
   const navigate = useNavigate();
-  const [user, setUser] = useState(() => JSON.parse(localStorage.getItem("user")));
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     if (storedUser) {
@@ -50,7 +48,6 @@ const Header = () => {
   const userName = storedUser?.username;
   const useCart = useCartStore(userName);
 
-  const cart = useCart((state) => state.cart);
 
 
   const handleCartClick = () => {
@@ -186,7 +183,7 @@ const Header = () => {
             <a className="icon-with-badge" href="/likes"><FontAwesomeIcon icon={faHeart} /><span className="badge">0</span></a>
 <a
           className="icon-with-badge"
-          href="#"
+          href="/"
           onClick={(e) => {
             e.preventDefault();
             handleCartClick();

@@ -29,11 +29,7 @@ function CartPage() {
     0
   );
 
-  const handleQuantityChange = (id, newQty, maxQty) => {
-    if (newQty < 1) newQty = 1;
-    if (newQty > maxQty) newQty = maxQty;
-    updateItemQuantity(id, newQty);
-  };
+
 
   return (
     <div className="cart-wrapper">
