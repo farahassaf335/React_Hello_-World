@@ -1,33 +1,31 @@
 import React, { useState } from "react";
-import useCartStore from "../store/useCartStore";
+import { useDispatch } from "react-redux";
+import { addItem } from "../store/cartSlice";
 
 function AddToCartButton({ product }) {
   const [added, setAdded] = useState(false);
-
+  const dispatch = useDispatch();
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const userName = storedUser?.username;
-  const useCart = useCartStore(userName);
-  const addItem = useCart((state) => state.addItem);
-
   const handleAddToCart = () => {
     if (!storedUser) {
-alert("Please log in first");
+      alert("Please log in first");
       return;
     }
-
-    addItem({ ...product, userName });
+    dispatch(
+      addItem({
+        userName,
+        item: { ...product, quantity: 1 },
+      })
+    );
 
     setAdded(true);
-    setTimeout(() => setAdded(false), 2000); 
+    setTimeout(() => setAdded(false), 2000);
   };
 
   return (
-    <button
-      className="deal-add-to-cart"
-      onClick={handleAddToCart}
-      
-    >
-      {added ? "✔ Successfully Added" : " ADD TO CART"}
+    <button className="deal-add-to-cart" onClick={handleAddToCart}>
+      {added ? "✔ Successfully Added" : "ADD TO CART"}
     </button>
   );
 }

@@ -1,7 +1,7 @@
 @use '../abstracts/variables' as vars;
 
 .auth-btn {
-  background-color:vars.$blue-color; // أزرق افتراضي
+  background-color:vars.$blue-color; 
   color: #fff;
   border: none;
   border-radius: 8px;

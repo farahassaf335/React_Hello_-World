@@ -1,37 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 
-export default function CartBadge({ userKey }) {
-  const [count, setCount] = useState(null); 
+export default function CartBadge() {
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const userName = storedUser?.username ;
 
-  useEffect(() => {
-    const updateCount = () => {
-      if (!userKey) {
-        setCount(null); 
-        return;
-      }
-      const cartData = localStorage.getItem(userKey);
-            if (cartData) {
-        try {
-          const parsed = JSON.parse(cartData);
-          const length = parsed?.state?.cart?.length || 0;
-          setCount(length);
-        } catch (e) {
-          setCount(0);
-        }
-      } else {
-        setCount(0); 
-      }
-    };
+  const items = useSelector((state) => state.cart.cart[userName] || []);
+  const count = items.length;
 
-    updateCount(); 
-    const interval = setInterval(updateCount, 1000); 
-
-    return () => clearInterval(interval);
-  }, [userKey]); 
-
-  return (
-    <span className="">
-      {count !== null ? count : ""} 
-    </span>
-  );
+  return <span className="">{count > 0 ? count : "0"}</span>;
 }

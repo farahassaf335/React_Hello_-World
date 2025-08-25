@@ -1,19 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import useCartStore from "../store/useCartStore"; 
+import { useSelector, useDispatch } from "react-redux";
+import { removeItem, clearCart, setCart } from "../store/cartSlice";
 
 function CartPage() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const storedUser = JSON.parse(localStorage.getItem("user"));
-  const userName = storedUser?.username;
+  const userName = storedUser?.username || "guest";
+ const items = useSelector(
+  (state) => state.cart.cart[userName] || []
+);
+  useEffect(() => {
+    const savedCart = localStorage.getItem(`cart_user_${userName}`);
+    if (savedCart) {
+    dispatch(setCart({ userName, items: JSON.parse(savedCart) }));
 
-  const useCart = useCartStore(userName);
-  const items = useCart((state) => state.cart);
-  const clearCart = useCart((state) => state.clearCart);
-  const removeItem = useCart((state) => state.removeItem);
+    }
+  }, [userName, dispatch]);
+  useEffect(() => {
+    localStorage.setItem(`cart_user_${userName}`, JSON.stringify(items));
+  }, [items, userName]);
 
   const mergedItems = items.reduce((acc, item) => {
-    const existing = acc.find(i => i.id === item.id);
+    const existing = acc.find((i) => i.id === item.id);
     if (existing) {
       existing.quantity += item.quantity || 1;
     } else {
@@ -24,12 +34,13 @@ function CartPage() {
 
   const totalItems = mergedItems.reduce((sum, item) => sum + item.quantity, 0);
   const cartTotal = mergedItems.reduce(
-    (sum, item) => sum + item.quantity * item.price * (1 - (item.discountPercentage || 0) / 100),
+    (sum, item) =>
+      sum +
+      item.quantity *
+        item.price *
+        (1 - (item.discountPercentage || 0) / 100),
     0
   );
-
-
-
   return (
     <div className="cart-wrapper">
       <h2 className="cart-title">Your Shopping Cart</h2>
@@ -38,7 +49,10 @@ function CartPage() {
         <>
           <p className="cart-empty">Your cart is empty.</p>
           <div className="action-buttons">
-            <button className="clear-cart-btn" onClick={clearCart}>
+            <button
+              className="clear-cart-btn"
+              onClick={() => dispatch(clearCart({ userName }))}
+            >
               Clear Cart
             </button>
             <button className="back-home-btn" onClick={() => navigate("/")}>
@@ -49,7 +63,8 @@ function CartPage() {
       ) : (
         <ul className="cart-list">
           {mergedItems.map((item) => {
-            const discountedPrice = item.price * (1 - (item.discountPercentage || 0) / 100);
+            const discountedPrice =
+              item.price * (1 - (item.discountPercentage || 0) / 100);
             return (
               <li key={item.id} className="cart-item">
                 <img
@@ -60,20 +75,28 @@ function CartPage() {
                 <div className="item-body">
                   <h3 className="item-title">{item.title}</h3>
                   <p className="item-desc">{item.description}</p>
-                  <p className="item-price">Unit Price: ${item.price.toFixed(2)}</p>
+                  <p className="item-price">
+                    Unit Price: ${item.price.toFixed(2)}
+                  </p>
 
-                
-<p className="item-quantity-label">Quantity: {item.quantity}</p>
-
+                  <p className="item-quantity-label">
+                    Quantity: {item.quantity}
+                  </p>
 
                   <p className="item-subtotal item-subtotal2">
-                    Subtotal (before discount): <strong>${(item.price * item.quantity).toFixed(2)}</strong>
+                  
                   </p>
                   <p className="item-subtotal">
-                    Subtotal (after discount): <strong>${(discountedPrice * item.quantity).toFixed(2)}</strong>
+                    Subtotal (after discount):{" "}
+                    <strong>
+                      ${(discountedPrice * item.quantity).toFixed(2)}
+                    </strong>
                   </p>
 
-                  <button className="remove-btn" onClick={() => removeItem(item.id)}>
+                  <button
+                    className="remove-btn"
+                    onClick={() =>dispatch(removeItem({ userName, id: item.id }))}
+                  >
                     Remove Product
                   </button>
                 </div>
@@ -88,7 +111,10 @@ function CartPage() {
           <p>Total items: {totalItems}</p>
           <p>Total price: ${cartTotal.toFixed(2)}</p>
           <div className="action-buttons">
-            <button className="clear-cart-btn" onClick={clearCart}>
+            <button
+              className="clear-cart-btn"
+              onClick={() => dispatch(clearCart({ userName }))}
+            >
               Clear Cart
             </button>
             <button className="back-home-btn" onClick={() => navigate("/")}>
