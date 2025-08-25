@@ -1,140 +1,81 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { ProductService } from "../services/productApi";
 
+export default function LatestProducts() {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const limit = 12;
 
-const newProducts = [
-  {
-    id: 1,
-    name: "Jacket",
-    originalPrice: 70,
-    currentPrice: 49.99,
-    rating: 3,
-    image: "/image/jacket.jpg",
-  },
-  {
-    id: 2,
-    name: "Shirt",
-    originalPrice: 40,
-    currentPrice: 29.99,
-    rating: 3,
-    image: "/image/shirt.jpg",
-  },
-  {
-    id: 3,
-    name: "Jacket",
-    originalPrice: 80,
-    currentPrice: 55.0,
-    rating: 3,
-    image: "/image/jacket2.jpg",
-  },
-  {
-    id: 4,
-    name: "Skirt",
-    originalPrice: 35,
-    currentPrice: 22.0,
-    rating: 5,
-    image: "/image/skirt.jpg",
-  },
-   {
-    id: 5,
-    name: "Jacket",
-    originalPrice: 70,
-    currentPrice: 49.99,
-    rating: 3,
-    image: "/image/jacket.jpg",
-  },
-  {
-    id: 6,
-    name: "Shirt",
-    originalPrice: 40,
-    currentPrice: 29.99,
-    rating: 3,
-    image: "/image/shirt.jpg",
-  },
-  {
-    id: 7,
-    name: "Jacket",
-    originalPrice: 80,
-    currentPrice: 55.0,
-    rating: 3,
-    image: "/image/jacket2.jpg",
-  },
-  {
-    id: 8,
-    name: "Skirt",
-    originalPrice: 35,
-    currentPrice: 22.0,
-    rating: 5,
-    image: "/image/skirt.jpg",
-  },
-   {
-    id: 9,
-    name: "Jacket",
-    originalPrice: 70,
-    currentPrice: 49.99,
-    rating: 3,
-    image: "/image/jacket.jpg",
-  },
-  {
-    id: 10,
-    name: "Shirt",
-    originalPrice: 40,
-    currentPrice: 29.99,
-    rating: 3,
-    image: "/image/shirt.jpg",
-  },
-  {
-    id: 11,
-    name: "Jacket",
-    originalPrice: 80,
-    currentPrice: 55.0,
-    rating: 3,
-    image: "/image/jacket2.jpg",
-  },
-  {
-    id: 12,
-    name: "Skirt",
-    originalPrice: 35,
-    currentPrice: 22.0,
-    rating: 5,
-    image: "/image/skirt.jpg",
-  },
-  
-];
+  useEffect(() => {
+    setLoading(true);
+    ProductService.getLatestProducts(1000)
+      .then((res) => {
+        setProducts(res.data.products);
+      })
+      .finally(() => setLoading(false));
+  }, []);
 
-const NewProducts = () => {
+  const getDiscountedPrice = (price, discount) =>
+    (price - (price * discount) / 100).toFixed(2);
+
+  if (loading) return <p className="loading">Loading products...</p>;
+
+  const startIndex = (page - 1) * limit;
+  const endIndex = startIndex + limit;
+  const paginatedProducts = products.slice(startIndex, endIndex);
+
+  const totalPages = Math.ceil(products.length / limit);
+  const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+
   return (
-    <div className="new-products">
-      <h3>New Products</h3>
-      <ul className="new-products-list">
-        {newProducts.map((product) => (
-          <li key={product.id} className="new-product-item">
-            <img
-              src={product.image}
-              alt={product.name}
-              width={100}
-              height={100}
-            />
-            <div className="info">
-              <p className="name">{product.name}</p>
-              <div className="price">
-  <span className="original-price">
-    ${product.originalPrice.toFixed(2)}
-  </span>
-  <span className="current-price">
-    ${product.currentPrice.toFixed(2)}
-  </span>
-</div>
+    <div className="latest-products">
+      <h3 className="latest-products-title">New Products</h3>
 
-              <div className="rating">
-                {"★".repeat(product.rating)}
-                {"☆".repeat(5 - product.rating)}
+      <div className="products-grid">
+        {paginatedProducts.map((product) => (
+          <div key={product.id} className="product-card">
+            <img
+              src={product.thumbnail}
+              alt={product.title}
+              className="product-image"
+            />
+            <div className="product-details">
+              <p className="product-name">{product.title}</p>
+
+              <div className="product-price">
+                <span className="original-price">${product.price.toFixed(2)}</span>
+                <span className="current-price">
+                  ${getDiscountedPrice(product.price, product.discountPercentage)}
+                </span>
+              </div>
+
+              {product.discountPercentage > 0 && (
+                <div className="product-discount">
+                  {product.discountPercentage}% OFF
+                </div>
+              )}
+
+              <div className="product-rating">
+                {"★".repeat(Math.round(product.rating))}
+                {"☆".repeat(5 - Math.round(product.rating))}
               </div>
             </div>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
+
+      <div className="pagination">
+        {pages.map((p) => (
+          <button
+            key={p}
+            className={p === page ? "active" : ""}
+            onClick={() => setPage(p)}
+          >
+            {p}
+          </button>
+        ))}
+      </div>
     </div>
   );
-};
-
-export default NewProducts;
+}
