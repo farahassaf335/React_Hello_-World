@@ -22,7 +22,6 @@ const Home = () => (
       </section>
       <MainCategories />
 
-
 <div className="page-layout ">
   <aside className="categories">
 

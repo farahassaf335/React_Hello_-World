@@ -1,1 +1,32 @@
-//styles will be added here later
+@use '../abstracts/variables' as vars;
+
+.auth-btn {
+  background-color:vars.$blue-color; 
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: vars.$blue-color-hover;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+
+  &.logout {
+    background-color: vars.$primary-color;
+
+    &:hover {
+      background-color: vars.$hover-color;
+    }
+  }
+}

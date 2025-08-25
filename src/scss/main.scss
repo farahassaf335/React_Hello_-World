@@ -21,7 +21,7 @@
 @use 'components/carousel';
 @use 'components/servicesAndBlogSection';
 
-
+@use 'components/cart';
 @use 'components/best-sellers'; 
  @use 'components/main-categories'; 
  @use 'components/category-navigation';
@@ -30,3 +30,4 @@
 
 @use 'pages/home';
 
+@use 'components/login-form';
