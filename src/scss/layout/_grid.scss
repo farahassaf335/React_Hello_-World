@@ -4,11 +4,19 @@
 .product-sections {
 
   .section-container {
-    margin-top:-10%;
-    margin-left: -8%;
-    display: flex;
-    gap: 8px; 
-    flex-wrap: wrap;
+    margin-top: -10%;
+    margin-left: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    @media (max-width: 900px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
   }
 .titleToSec{
   border-bottom: 0.5px solid vars.$bg-divider; 
@@ -17,7 +25,10 @@
 
   .section-column {
     flex: 1 1 320px;
-    min-width: 320px;
+    min-width: 220px;
+    @media (max-width: 600px) {
+      min-width: 100%;
+    }
   }
 
   .product-card {
@@ -84,7 +95,7 @@
         font-size: 0.9rem;
         font-weight: bold;
         color: #e94560;
-margin-left: -50%;
+        margin-left: -50%;
         .old-price {
           margin-left: 6px;
           font-size: 0.8rem;
@@ -94,7 +105,6 @@ margin-left: -50%;
       }
     }
   }
-}
 
 .product-card {
   display: flex;
@@ -107,10 +117,11 @@ margin-left: -50%;
   padding: 8px;
   max-width: 100%;
   min-height: 80px;
-  overflow: hidden;
-  cursor: pointer;
-  margin-bottom: 8px;
-
+    gap: 0.5rem;
+    padding: 1.125rem;
+    border-radius: 0.75rem;
+    margin-bottom: 0.5rem;
+}
   .image-container {
     flex-shrink: 0;
     width: 60px;
@@ -123,6 +134,9 @@ margin-left: -50%;
       height: 100%;
       object-fit: cover;
       display: block;
+      width: 3.75rem;
+      height: 3.75rem;
+      border-radius: 0.5rem;
     }
   }
 
@@ -145,7 +159,7 @@ margin-left: -50%;
     .product-category {
       font-size: 0.85rem;
       color: #777;
-      margin-bottom: 4px;
+        font-size: clamp(0.9rem, 2vw, 1rem);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;

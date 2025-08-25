@@ -94,12 +94,12 @@
   }
 
   .search-results {
-    max-width: 900px;
-    margin: 80px auto;
-    background-color: vars.$bg-light;
-    color: vars.$text-color;
-    padding: 20px;
-    border-radius: 12px;
+  max-width: 56.25rem;
+  margin: 5rem auto;
+  background-color: vars.$bg-light;
+  color: vars.$text-color;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
 
     .product-item {
       @include mixins.flex(flex-start, flex-start, 20px);

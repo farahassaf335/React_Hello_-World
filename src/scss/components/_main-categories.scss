@@ -2,23 +2,34 @@
 @use '../abstracts/mixins' as mixins;
 
 .main-categories-wrapper {
-  margin: 20px 30px;
-  padding: 10px;
+  margin: 1.25rem 2rem;
+  padding: 0.625rem;
 }
 
 .main-categories-grid {
-  @include mixins.flex(flex-start, flex-start, 15px);
+  @include mixins.flex(flex-start, flex-start, 0.9375rem);
   flex-wrap: wrap;
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 8px;
+  }
 }
 
 .category-item {
   @include mixins.flex(flex-start, center);
   background-color: vars.$category-bg-color;
-  padding: 8px 12px;
-  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
   width: 24.2%;
   box-shadow: 0 1px 4px rgba(0,0,0,0.05);
   transition: transform 0.3s ease;
+  @media (max-width: 900px) {
+    width: 48%;
+  }
+  @media (max-width: 600px) {
+    width: 100%;
+    padding: 6px 8px;
+  }
   
 }
 
@@ -28,27 +39,27 @@
 }
 
 .category-item img {
-  height: 60px;
-  border-radius: 5px;
+  height: 3.75rem;
+  border-radius: 0.3125rem;
   
 }
 
 .category-info {
   display: flex;
   flex-direction: column;
- text-align: left;
- margin-left: 2%;
+  text-align: left;
+  margin-left: 2%;
 }
 
 .category-title {
-  font-size: 18px;
+  font-size: clamp(1rem, 2vw, 1.125rem);
   font-weight: 600;
   color: vars.$category-title-color;
 
 }
 
 .category-show-all {
-  font-size: 11px;
+  font-size: 0.6875rem;
   color: vars.$category-show-all-color;
   text-decoration: none;
   font-weight: 500;

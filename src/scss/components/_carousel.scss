@@ -1,56 +1,52 @@
 @use '../abstracts/variables' as vars;
 
 .custom-carousel {
-  height: 500px;
+  height: 28rem;
   overflow: hidden;
-  border-radius: 18px;
+  border-radius: 1.125rem;
   position: relative;
-  margin-left: -12%;
-  margin-top: 2%;
-  width: 125%;
+  margin-left: -8%;
+  margin-top: 1.5%;
+  width: 110%;
   &-content {
     position: absolute;
-    top: 45%; 
+    top: 45%;
     left: 2%;
     transform: translateY(-50%);
     z-index: 20;
     color: white;
-    max-width: 600px;
-    padding: 30px;
-    border-radius: 18px;
+    max-width: 37.5rem;
+    padding: 2rem;
+    border-radius: 1.125rem;
     backdrop-filter: blur(8px);
   }
 
   &-title {
-    font-size: 25px; 
-    color:vars.$primary-color;
-
+    font-size: clamp(1.2rem, 3vw, 1.7rem);
+    color: vars.$primary-color;
   }
 
   &-subtitle {
-    font-size: 35px;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
     font-weight: bold;
     display: block;
-    margin-top: 5px;
-    color:vars.$black-color ;
-
-    
+    margin-top: 0.3125rem;
+    color: vars.$black-color;
   }
 
   &-text {
-    font-size: 18px;
-    margin: 0 0 15px 0;
-            color:vars.$text-color;
-
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    margin: 0 0 0.9375rem 0;
+    color: vars.$text-color;
   }
 
   &-btn {
-    margin-top: 15px;
-    padding: 10px 25px;
+    margin-top: 1rem;
+    padding: 0.625rem 1.5rem;
     background-color: vars.$primary-color;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     cursor: pointer;
     font-weight: 600;
     transition: all 0.3s ease;
@@ -76,26 +72,22 @@
   }
 
   @media (max-width: 768px) {
-    height: 300px;
-
+    height: 16rem;
     &-content {
-      padding: 20px;
+      padding: 1.25rem;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 80%;
       text-align: center;
     }
-
     &-title {
-      font-size: 30px;
+      font-size: 1.25rem;
     }
-
     &-subtitle {
-      font-size: 18px;
+      font-size: 1rem;
     }
-
     &-text {
-      font-size: 16px;
+      font-size: 0.9rem;
     }
   }
 }
