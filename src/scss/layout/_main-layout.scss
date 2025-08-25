@@ -2,46 +2,40 @@
 @use '../abstracts/mixins' as mixins;
 
 .page-layout {
-
-  @include mixins.grid-layout;
- 
+  display: grid;
+  grid-template-columns: 22rem 1fr;
+  gap: 1.25rem;
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
 }
 
 aside {
-   
   background-color: vars.$bg-light;
-
-  max-width: 220px;
-
-    margin-top: 120px;
-
+  max-width: 13.75rem;
+  margin-top: 7.5rem;
+  @media (max-width: 900px) {
+    max-width: 100%;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
 }
+
 main {
- @include mixins.main-area(vars.$white-color, 10px);
-  padding-top: 100px;
+  @include mixins.main-area(vars.$white-color, 10px);
+  padding-top: 6.25rem;
+  @media (max-width: 900px) {
+    padding-top: 40px;
+  }
 }
+
 footer {
- @include mixins.footer-area;
+  @include mixins.footer-area;
 }
-
-
-
-
-
-
-
-
-.page-layout {
-  display: grid;
-  grid-template-columns: 400px 1fr;   
-  gap: 20px;
-
-}
-
-
 
 .main-content {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
 }
